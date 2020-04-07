@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="兵种树">
+<meta name="keywords" content="骑马与砍杀,兵种树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《骑马与砍杀:战团》 兵种树">
+<meta property="og:url" content="https://andersonfeng.github.io/2018/07/19/Mount&Blade-Warband-Arms-Tree/index.html">
+<meta property="og:site_name" content="Anderson&#39;s blog">
+<meta property="og:description" content="兵种树">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.3dmgame.com/uploads/allimg/170726/374_170726150019_1.jpg">
+<meta property="og:updated_time" content="2020-04-06T04:54:39.399Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《骑马与砍杀:战团》 兵种树">
+<meta name="twitter:description" content="兵种树">
+<meta name="twitter:image" content="http://www.3dmgame.com/uploads/allimg/170726/374_170726150019_1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://andersonfeng.github.io/2018/07/19/Mount&Blade-Warband-Arms-Tree/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《骑马与砍杀:战团》 兵种树 | Anderson's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anderson's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">青铜程序员</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://andersonfeng.github.io/2018/07/19/Mount&Blade-Warband-Arms-Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Anderson Feng">
+      <meta itemprop="description" content="做个有元人">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/13361365?s=400&u=36706a9a11414b4f04d6cd3bd6414407cb80fe2a&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anderson's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《骑马与砍杀:战团》 兵种树
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-19 10:27:50" itemprop="dateCreated datePublished" datetime="2018-07-19T10:27:50+08:00">2018-07-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-04-06 12:54:39" itemprop="dateModified" datetime="2020-04-06T12:54:39+08:00">2020-04-06</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/游戏/" itemprop="url" rel="index"><span itemprop="name">游戏</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/19/Mount&Blade-Warband-Arms-Tree/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/07/19/Mount&Blade-Warband-Arms-Tree/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/19/Mount&Blade-Warband-Arms-Tree/" class="leancloud_visitors" data-flag-title="《骑马与砍杀:战团》 兵种树">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox" href="http://www.3dmgame.com/uploads/allimg/170726/374_170726150019_1.jpg" rel="gallery_ck8pqu5880007ukaw6y4nesid" itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://www.3dmgame.com/uploads/allimg/170726/374_170726150019_1.jpg" itemprop="contentUrl">
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <p>兵种树</p>
+<a id="more"></a>
+<h3 id="诺德兵种树-Nord-troop-tree"><a href="#诺德兵种树-Nord-troop-tree" class="headerlink" title="诺德兵种树 (Nord troop tree)"></a>诺德兵种树 (Nord troop tree)</h3><div id="flowchart-0" class="flow-chart"></div>
+
+<h3 id="罗多克-Rhodok-troop-tree"><a href="#罗多克-Rhodok-troop-tree" class="headerlink" title="罗多克 (Rhodok troop tree)"></a>罗多克 (Rhodok troop tree)</h3><div id="flowchart-1" class="flow-chart"></div>
+
+<h3 id="库吉特-Khergit-troop-tree"><a href="#库吉特-Khergit-troop-tree" class="headerlink" title="库吉特 (Khergit troop tree)"></a>库吉特 (Khergit troop tree)</h3><div id="flowchart-2" class="flow-chart"></div>
+
+<h3 id="萨兰德-Sarranid-troop-tree"><a href="#萨兰德-Sarranid-troop-tree" class="headerlink" title="萨兰德 (Sarranid troop tree)"></a>萨兰德 (Sarranid troop tree)</h3><div id="flowchart-3" class="flow-chart"></div>
+
+<h3 id="斯瓦迪亚-Swadian-troop-tree"><a href="#斯瓦迪亚-Swadian-troop-tree" class="headerlink" title="斯瓦迪亚(Swadian troop tree)"></a>斯瓦迪亚(Swadian troop tree)</h3><div id="flowchart-4" class="flow-chart"></div>
+
+<h3 id="维基亚-Vaegir-troop-tree"><a href="#维基亚-Vaegir-troop-tree" class="headerlink" title="维基亚 (Vaegir troop tree)"></a>维基亚 (Vaegir troop tree)</h3><div id="flowchart-5" class="flow-chart"></div>
+
+<p><a href="http://mountandblade.wikia.com/wiki/Troop_Trees" title="Mount and Blade Wiki" target="_blank" rel="noopener">部分资料参考自Mount and Blade Wiki</a><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">Recruit=>start: 诺德新兵(6)|:>/images/Mount&Blade/诺德新兵.jpg[blank][cursor:cursor]
+Footman=>operation: 诺德轻步兵(10)|:>/images/Mount&Blade/诺德轻步兵.jpg[blank]
+TrainedFootman=>operation: 诺德熟练轻步兵(14)|:>/images/Mount&Blade/诺德熟练轻步兵.jpg[blank]
+Warrior=>operation: 诺德勇士(19)
+Veteran=>operation: 诺德资深士兵(24)|:>/images/Mount&Blade/诺德资深士兵.jpg[blank]
+Huscarl=>end: 诺德皇家侍卫(28)|:>/images/Mount&Blade/诺德皇家侍卫.jpg[blank]
+Huntsman=>operation: 诺德猎人(11)
+Archer=>operation: 诺德弓箭手(15)|:>/images/Mount&Blade/诺德弓箭手.jpg[blank]
+VeteranArcher=>end: 诺德资深弓箭手(19):>/images/Mount&Blade/诺德资深弓箭手.jpg[blank]
+TransferToHuntsman=>condition: 转职为猎人|approved
+
+Recruit->TransferToHuntsman(no)->Footman->TrainedFootman->Warrior->Veteran->Huscarl
+TransferToHuntsman(yes,right)->Huntsman->Archer->VeteranArcher</textarea><textarea id="flowchart-0-options" style="display: none">{"x":0,"y":0,"line-width":3,"line-length":50,"text-margin":10,"font-size":14,"font-color":"black","line-color":"black","element-color":"black","fill":"white","yes-text":"yes","no-text":"no","arrow-end":"block","scale":1,"symbols":{"start":{},"end":{"class":"end-element"}},"flowstate":{"past":{"fill":"#CCCCCC","font-size":12},"current":{"fill":"yellow","font-color":"red","font-weight":"bold"},"future":{"fill":"lightgrey"},"request":{"fill":"blue"},"invalid":{"fill":"#444444"},"approved":{"fill":"#58C4A3","font-size":12,"yes-text":"是","no-text":"否"},"rejected":{"fill":"#C45879","font-size":12,"yes-text":"n/a","no-text":"REJECTED"}}}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">Tribesman=>start: 罗多克族人(4)
+Spearman=>operation: 罗多克长矛手(9)
+TrainedSpearman=>operation: 罗多克熟练长矛手(14)
+VeteranSpearman=>operation: 罗多克资深长矛手(19)
+Sergeant=>end: 罗多克军士(24) 
+Crossbowman=>operation: 罗多克弩手(10)
+Tr.Crossbowman=>operation: 罗多克熟练弩手(15)
+Sharpshooter=>end: 罗多克狙击弩手(25)
+TransferToCrossbowman=>condition: 转职为弩手|approved
+
+Tribesman->TransferToCrossbowman(no)->Spearman->TrainedSpearman->VeteranSpearman->Sergeant
+Tribesman->TransferToCrossbowman(yes,right)->Crossbowman->Tr.Crossbowman->Sharpshooter</textarea><textarea id="flowchart-1-options" style="display: none">{"x":0,"y":0,"line-width":3,"line-length":50,"text-margin":10,"font-size":14,"font-color":"black","line-color":"black","element-color":"black","fill":"white","yes-text":"yes","no-text":"no","arrow-end":"block","scale":1,"symbols":{"start":{},"end":{"class":"end-element"}},"flowstate":{"past":{"fill":"#CCCCCC","font-size":12},"current":{"fill":"yellow","font-color":"red","font-weight":"bold"},"future":{"fill":"lightgrey"},"request":{"fill":"blue"},"invalid":{"fill":"#444444"},"approved":{"fill":"#58C4A3","font-size":12,"yes-text":"是","no-text":"否"},"rejected":{"fill":"#C45879","font-size":12,"yes-text":"n/a","no-text":"REJECTED"}}}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script><textarea id="flowchart-2-code" style="display: none">Tribesman=>start: 库吉特族人(5)
+Skirmisher=>operation: 库吉特游击射手(10)
+Horseman=>operation: 库吉特骑手(14) 
+Lancer=>end: 库吉特枪骑兵(23) 
+HorseArcher=>operation: 库吉特骑射手(14)
+Vet.HorseArcher=>end: 库吉特资深骑射手(21)
+TransferToLancer=>condition: 转职为枪骑兵|approved
+
+Tribesman->Skirmisher->Horseman->TransferToLancer(yes,right)->Lancer
+TransferToLancer(no)->HorseArcher->Vet.HorseArcher</textarea><textarea id="flowchart-2-options" style="display: none">{"x":0,"y":0,"line-width":3,"line-length":50,"text-margin":10,"font-size":14,"font-color":"black","line-color":"black","element-color":"black","fill":"white","yes-text":"yes","no-text":"no","arrow-end":"block","scale":1,"symbols":{"start":{},"end":{"class":"end-element"}},"flowstate":{"past":{"fill":"#CCCCCC","font-size":12},"current":{"fill":"yellow","font-color":"red","font-weight":"bold"},"future":{"fill":"lightgrey"},"request":{"fill":"blue"},"invalid":{"fill":"#444444"},"approved":{"fill":"#58C4A3","font-size":12,"yes-text":"是","no-text":"否"},"rejected":{"fill":"#C45879","font-size":12,"yes-text":"n/a","no-text":"REJECTED"}}}</textarea><script>  var code = document.getElementById("flowchart-2-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-2-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-2", options);</script><textarea id="flowchart-3-code" style="display: none">SarranidRecruit=>start: 萨兰德新兵(4)
+SarranidFootman=>operation: 萨兰德轻步兵(9) 
+SarranidSkirmisher=>operation: 萨兰德游击射手(14)
+SarranidArcher=>operation: 萨兰德弓箭手(19)
+SarranidMasterArcher=>end: 萨兰德弓箭大师(24) 
+SarranidVeteranFootman=>operation: 萨兰德资深轻步兵(14) 
+SarranidInfantry=>operation: 萨兰德步兵(20)
+SarranidGuard=>end: 萨兰德卫士(25)
+SarranidHorseman=>operation: 萨兰德骑手(20)
+SarranidMamluke=>end: 萨兰德马穆鲁克(27)
+TransferToSarranidVeteranFootman=>condition: 转职为萨兰德资深轻步兵|approved
+TransferToSarranidHorseman=>condition: 转职为萨兰德骑手|approved
+
+SarranidRecruit->SarranidFootman->TransferToSarranidVeteranFootman(yes,right)->SarranidVeteranFootman->TransferToSarranidHorseman(yes,right)->SarranidHorseman->SarranidMamluke
+TransferToSarranidVeteranFootman(no)->SarranidSkirmisher->SarranidArcher->SarranidMasterArcher
+TransferToSarranidHorseman(no)->SarranidInfantry->SarranidGuard</textarea><textarea id="flowchart-3-options" style="display: none">{"x":0,"y":0,"line-width":3,"line-length":50,"text-margin":10,"font-size":14,"font-color":"black","line-color":"black","element-color":"black","fill":"white","yes-text":"yes","no-text":"no","arrow-end":"block","scale":1,"symbols":{"start":{},"end":{"class":"end-element"}},"flowstate":{"past":{"fill":"#CCCCCC","font-size":12},"current":{"fill":"yellow","font-color":"red","font-weight":"bold"},"future":{"fill":"lightgrey"},"request":{"fill":"blue"},"invalid":{"fill":"#444444"},"approved":{"fill":"#58C4A3","font-size":12,"yes-text":"是","no-text":"否"},"rejected":{"fill":"#C45879","font-size":12,"yes-text":"n/a","no-text":"REJECTED"}}}</textarea><script>  var code = document.getElementById("flowchart-3-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-3-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-3", options);</script><textarea id="flowchart-4-code" style="display: none">Recruit=>start: 斯瓦迪亚新兵(4)
+Militia=>operation: 斯瓦迪亚民兵(9) 
+Skirmisher=>operation: 斯瓦迪亚游击射手(14)
+Crossbowman=>operation: 斯瓦迪亚弩手(19)
+Sharpshooter=>end: 斯瓦迪亚狙击手(24)
+Footman=>operation: 斯瓦迪亚轻步兵(14)
+Infantry=>operation: 斯瓦迪亚步兵(20)
+Sergeant=>end: 斯瓦迪亚军士(25)
+ManAtArms=>operation: 斯瓦迪亚重骑兵(20)
+Knight=>end: 斯瓦迪亚骑士(25)
+TransferToFootman=>condition: 转职为斯瓦迪亚轻步兵|approved
+TransferToManAtArms=>condition: 转职为斯瓦迪亚重骑兵|approved
+
+Recruit->Militia->TransferToFootman(yes,right)->Footman->TransferToManAtArms(yes,right)->ManAtArms->Knight
+TransferToFootman(no)->Skirmisher->Crossbowman->Sharpshooter
+TransferToManAtArms(no)->Infantry->Sergeant</textarea><textarea id="flowchart-4-options" style="display: none">{"x":0,"y":0,"line-width":3,"line-length":50,"text-margin":10,"font-size":14,"font-color":"black","line-color":"black","element-color":"black","fill":"white","yes-text":"yes","no-text":"no","arrow-end":"block","scale":1,"symbols":{"start":{},"end":{"class":"end-element"}},"flowstate":{"past":{"fill":"#CCCCCC","font-size":12},"current":{"fill":"yellow","font-color":"red","font-weight":"bold"},"future":{"fill":"lightgrey"},"request":{"fill":"blue"},"invalid":{"fill":"#444444"},"approved":{"fill":"#58C4A3","font-size":12,"yes-text":"是","no-text":"否"},"rejected":{"fill":"#C45879","font-size":12,"yes-text":"n/a","no-text":"REJECTED"}}}</textarea><script>  var code = document.getElementById("flowchart-4-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-4-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-4", options);</script><textarea id="flowchart-5-code" style="display: none">Recruit=>start: 维基亚新兵(4)
+Footman=>operation: 维基亚轻步兵(9)
+Skirmisher=>operation: 维基亚游击射手(14)
+Archer=>operation: 维基亚弓箭手(19)
+Marksman=>end: 维基亚神射手(24)
+Veteran=>operation: 维基亚资深士兵(14)
+Infantry=>operation: 维基亚步兵(19)
+Guard=>end: 维基亚卫士(24)
+Horseman=>operation: 维基亚骑手(19)
+Knight=>end: 维基亚骑士(24)
+TransferToVeteran=>condition: 转职为维基亚资深士兵|approved
+TransferToHorseman=>condition: 转职为维基亚骑手|approved
+
+Recruit->Footman->TransferToVeteran(yes,right)->Veteran->TransferToHorseman(yes,right)->Horseman->Knight
+TransferToVeteran(no)->Skirmisher->Archer->Marksman
+TransferToHorseman(no)->Infantry->Guard</textarea><textarea id="flowchart-5-options" style="display: none">{"x":0,"y":0,"line-width":3,"line-length":50,"text-margin":10,"font-size":14,"font-color":"black","line-color":"black","element-color":"black","fill":"white","yes-text":"yes","no-text":"no","arrow-end":"block","scale":1,"symbols":{"start":{},"end":{"class":"end-element"}},"flowstate":{"past":{"fill":"#CCCCCC","font-size":12},"current":{"fill":"yellow","font-color":"red","font-weight":"bold"},"future":{"fill":"lightgrey"},"request":{"fill":"blue"},"invalid":{"fill":"#444444"},"approved":{"fill":"#58C4A3","font-size":12,"yes-text":"是","no-text":"否"},"rejected":{"fill":"#C45879","font-size":12,"yes-text":"n/a","no-text":"REJECTED"}}}</textarea><script>  var code = document.getElementById("flowchart-5-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-5-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-5", options);</script></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/骑马与砍杀/" rel="tag"># 骑马与砍杀</a>
+          
+            <a href="/tags/兵种树/" rel="tag"># 兵种树</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/18/Mount&Blade-Warband-NPC-Relationship/" rel="next" title="《骑马与砍杀:战团》 NPC关系">
+                <i class="fa fa-chevron-left"></i> 《骑马与砍杀:战团》 NPC关系
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/27/Daily-Singleton-Serialization/" rel="prev" title="单例与序列化日常">
+                单例与序列化日常 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars3.githubusercontent.com/u/13361365?s=400&u=36706a9a11414b4f04d6cd3bd6414407cb80fe2a&v=4" alt="Anderson Feng">
+            
+              <p class="site-author-name" itemprop="name">Anderson Feng</p>
+              <p class="site-description motion-element" itemprop="description">做个有元人</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Andersonfeng" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#诺德兵种树-Nord-troop-tree"><span class="nav-number">1.</span> <span class="nav-text">诺德兵种树 (Nord troop tree)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#罗多克-Rhodok-troop-tree"><span class="nav-number">2.</span> <span class="nav-text">罗多克 (Rhodok troop tree)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#库吉特-Khergit-troop-tree"><span class="nav-number">3.</span> <span class="nav-text">库吉特 (Khergit troop tree)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#萨兰德-Sarranid-troop-tree"><span class="nav-number">4.</span> <span class="nav-text">萨兰德 (Sarranid troop tree)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#斯瓦迪亚-Swadian-troop-tree"><span class="nav-number">5.</span> <span class="nav-text">斯瓦迪亚(Swadian troop tree)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#维基亚-Vaegir-troop-tree"><span class="nav-number">6.</span> <span class="nav-text">维基亚 (Vaegir troop tree)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Anderson Feng</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: '1531967270000',
+            owner: 'Andersonfeng',
+            repo: 'andersonfeng.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'd76f85f07ae1210858053b29c4aa7656c59b843d',
+            
+                client_id: '5dea708cd09925b78ac5'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("q8CjwUbLKRd2uJEgFqOfipSg-gzGzoHsz", "k47e4WvaeunX55OyN5GDJrTM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
