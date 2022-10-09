@@ -1,35 +1,343 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>路由扩展那些事儿 | Anderson&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="无线路由扩展遇到的小问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由扩展那些事儿">
+<meta property="og:url" content="https://andersonfeng.github.io/2020/04/09/Something-About-Routing-Extension/index.html">
+<meta property="og:site_name" content="Anderson&#39;s blog">
+<meta property="og:description" content="无线路由扩展遇到的小问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E8%B7%AF%E7%94%B1%E5%90%8C%E7%BD%91%E6%AE%B5%E6%89%A9%E5%B1%95.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E6%89%A9%E5%B1%95LAN-DHCP%E7%A6%81%E7%94%A8.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E8%B7%AF%E7%94%B1%E4%B8%8D%E5%90%8C%E7%BD%91%E6%AE%B5%E6%89%A9%E5%B1%95.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E6%89%A9%E5%B1%95WAN-DHCP.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E5%AD%90%E8%B7%AF%E7%94%B1%E4%B8%8A%E7%BD%91.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1WAN%E5%8F%A3IP.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/DMZ.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E4%B8%BB%E8%B7%AF%E7%94%B1%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E8%A1%A8.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E4%B8%BB%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87ping%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87%E7%8A%B6%E6%80%81.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87ping%E4%B8%8D%E9%80%9A.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E5%BC%80%E5%90%AFNetlogon%E6%9C%8D%E5%8A%A1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E7%BD%91%E7%BB%9C%E5%8F%91%E7%8E%B0.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87ping%E9%80%9A.png">
+<meta property="article:published_time" content="2020-04-09T11:51:51.000Z">
+<meta property="article:modified_time" content="2020-04-09T13:36:57.000Z">
+<meta property="article:author" content="Anderson Feng">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Route">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://andersonfeng.github.io/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E8%B7%AF%E7%94%B1%E5%90%8C%E7%BD%91%E6%AE%B5%E6%89%A9%E5%B1%95.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Anderson&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Anderson&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://andersonfeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Something-About-Routing-Extension" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/09/Something-About-Routing-Extension/" class="article-date">
+  <time datetime="2020-04-09T11:51:51.000Z" itemprop="datePublished">2020-04-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      路由扩展那些事儿
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote class="blockquote-center"><p>无线路由扩展遇到的小问题</p>
+</blockquote>
+
+<span id="more"></span>
+
+<p>家不大,但是主路由并没有放在房子中间,所以需要扩展路由信号</p>
+<h2 id="有线扩展"><a href="#有线扩展" class="headerlink" title="有线扩展"></a>有线扩展</h2><p>需要一条网线连接两个路由器</p>
+<h3 id="同网段"><a href="#同网段" class="headerlink" title="同网段"></a>同网段</h3><p>网线一头接主路由的LAN口另一头接副路由的WAN口</p>
+<p>此处不做介绍</p>
+<h3 id="不同网段"><a href="#不同网段" class="headerlink" title="不同网段"></a>不同网段</h3><p>网线一头接主路由的LAN口,另一头接副路由的LAN口</p>
+<p>此处不做介绍</p>
+<h2 id="无线扩展"><a href="#无线扩展" class="headerlink" title="无线扩展"></a>无线扩展</h2><p>相当于一个无线网卡连接主路由的无线网再发射信号</p>
+<p>可以选择连5G 也可以选择连2.4G 但这个路由不支持两个同时连 (K2 刷PDCN)</p>
+<h3 id="同网段-1"><a href="#同网段-1" class="headerlink" title="同网段"></a>同网段</h3><p>连接主路由的无线信号</p>
+<p>选择LAN bridge</p>
+<img src="/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E8%B7%AF%E7%94%B1%E5%90%8C%E7%BD%91%E6%AE%B5%E6%89%A9%E5%B1%95.png" class="" title="无线路由同网段扩展">
+
+<p>DHCP设置有两种方法,主要是避免设备的IP地址冲突导致不能上网</p>
+<ol>
+<li><p>子路由禁用DHCP分配,完全由上级路由分配IP**(这里选用第一种)**</p>
+</li>
+<li><p>子路由与上级路由划分开网段</p>
+<p>比如上级路由ip范围:<em>[192.168.50.1-192.168.50.99]</em>  子路由ip范围*[192.168.50.100-192.168.50.254]*</p>
+</li>
+</ol>
+<img src="/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E6%89%A9%E5%B1%95LAN-DHCP%E7%A6%81%E7%94%A8.png" class="" title="DHCP设置上级路由分配IP">
+
+<p>但是经过多次测试,子路由经常隔几个小时就会断网一会儿,所以使用了不同网段的扩展</p>
+<p>不知道是路由器硬件问题还是路由器固件问题,</p>
+<h3 id="不同网段-1"><a href="#不同网段-1" class="headerlink" title="不同网段"></a>不同网段</h3><p>不同网段扩展有一个弊端,</p>
+<p>主路由设备无法ping副路由 </p>
+<p>副路由可以ping主路由</p>
+<p>也就是说主路由设备看不到副路由设备的文件共享之类的</p>
+<p>后面会给出解决主副路由设备互联的方法</p>
+<p>连接主路由的无线信号</p>
+<p>选择WAN(Wireless ISP)</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E8%B7%AF%E7%94%B1%E4%B8%8D%E5%90%8C%E7%BD%91%E6%AE%B5%E6%89%A9%E5%B1%95.png" class="" title="无线路由不同网段扩展"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E6%89%A9%E5%B1%95WAN-DHCP.png" class="" title="DHCP由自己分配"></div></div></div></div>
+
+<p>现在连上主路由和子路由的设备都能上网而且不会有网络中断的情况发生</p>
+<p>子路由的LAN口伸出的网线连接的终端也能直接上网,相当于插了一个无线网卡连接主路由</p>
+<img src="/images/Something-About-Routing-Extension/%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E5%AD%90%E8%B7%AF%E7%94%B1%E4%B8%8A%E7%BD%91.png" class="" title="网线连接子路由上网">
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<p>但是主路由设备目前访问不了子路由设备</p>
+<p>这里有两个解决方案</p>
+<h2 id="不同网段设备互访-DMZ"><a href="#不同网段设备互访-DMZ" class="headerlink" title="不同网段设备互访 DMZ"></a>不同网段设备互访 DMZ</h2><p>设置一个内网主机IP 暴露给主路由</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>比如子路由有一个终端设备IP为*[192.168.2.212]*</p>
+<p>子路由在主路由的IP 也就是子路由的WAN口IP为 <em>[192.168.50.95]</em></p>
+<p>子路由设置了DMZ内网主机IP为*[192.168.2.212]*</p>
+<p>那么主路由设备ping <em>[192.168.50.95]</em> 时就相当于ping子路由的*[192.168.2.212]*</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1WAN%E5%8F%A3IP.png" class="" title="子路由WAN口IP"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/DMZ.png" class="" title="DMZ"></div></div></div></div>
+
+<h3 id="不同网段设备互访-静态路由"><a href="#不同网段设备互访-静态路由" class="headerlink" title="不同网段设备互访 静态路由"></a>不同网段设备互访 静态路由</h3><p>主路由将子路由添加到静态路由列表</p>
+<img src="/images/Something-About-Routing-Extension/%E4%B8%BB%E8%B7%AF%E7%94%B1%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E8%A1%A8.png" class="" title="主路由静态路由表">
+
+<p>这样主路由的设备也能ping通子路由的所有设备,也能访问子路由的路由页面了</p>
+<img src="/images/Something-About-Routing-Extension/%E4%B8%BB%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87ping%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87.png" class="" title="主路由设备ping子路由设备">
 
 
-{% block content %}
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+
+<p>但是也有个别情况ping不同某些子路由的windows设备</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87%E7%8A%B6%E6%80%81.png" class="" title="子路由设备状态"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87ping%E4%B8%8D%E9%80%9A.png" class="" title="子路由设备ping不通.png"></div></div></div></div>
+
+<p>这是子路由设备的防火墙设置导致的,</p>
+<p>不推荐直接关闭防火墙解决问题</p>
+<p>这里找到了防火墙的关键设置</p>
+<p>控制面板-&gt;所有控制面板项-&gt;Windows Defender 防火墙-&gt;允许应用或功能通过 Windows Defender 防火墙</p>
+<p>开启Netlogon服务 用于网络共享</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E5%BC%80%E5%90%AFNetlogon%E6%9C%8D%E5%8A%A1.png" class="" title="开启Netlogon服务"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E7%BD%91%E7%BB%9C%E5%8F%91%E7%8E%B0.png" class="" title="网络发现.png"></div></div></div></div>
+
+<p>(怕搞错的朋友不用怕,Windows Defender 防火墙页面有***[还原默认值]***的选项)</p>
+<p>至于ping的问题 </p>
+<p>控制面板-&gt;所有控制面板项-&gt;Windows Defender 防火墙-&gt;高级设置-&gt;入站规则-&gt;新建规则</p>
+<p>规则类型:自定义</p>
+<p>程序:所有程序</p>
+<p>协议和端口:ICMPv4</p>
+<p>作用域: 远程IP地址上添加主路由的IP地址段 这里为[192.168.50.0&#x2F;24]</p>
+<p>操作:允许连接</p>
+<p>配置文件:当前网络是什么类型就选什么</p>
+<p>名称:自己命名</p>
+<img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87ping%E9%80%9A.png" class="" title="子路由设备ping通">
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://andersonfeng.github.io/2020/04/09/Something-About-Routing-Extension/" data-id="cl90v4vps000oy2wv21xv5u5q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Route/" rel="tag">Route</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/19/Big-Two-With-Unity/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Unity 做扑克游戏-锄大地
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/08/Unity-Snake/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Unity 做贪吃蛇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">编程</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alona-Beach/" rel="tag">Alona Beach</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bohol/" rel="tag">Bohol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game/" rel="tag">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KCP/" rel="tag">KCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/L2TP/" rel="tag">L2TP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/" rel="tag">Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Logback/" rel="tag">Logback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/" rel="tag">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPC/" rel="tag">NPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Origin/" rel="tag">Origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Philippines/" rel="tag">Philippines</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RedisTemplate/" rel="tag">RedisTemplate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/" rel="tag">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks/" rel="tag">Shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Singleton/" rel="tag">Singleton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slf4j/" rel="tag">Slf4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SoftEther/" rel="tag">SoftEther</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP2RAW/" rel="tag">UDP2RAW</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Youtube/" rel="tag">Youtube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E4%BA%9A/" rel="tag">三亚</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E6%B5%B7/" rel="tag">上海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" rel="tag">东海岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" rel="tag">兵种树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E6%B5%B7/" rel="tag">北海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E6%BB%A9/" rel="tag">外滩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E4%B8%9C/" rel="tag">广东</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" rel="tag">御温泉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%AD%E5%B7%9E/" rel="tag">杭州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%B3%E5%B7%9E/" rel="tag">柳州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%B7%E5%8D%97/" rel="tag">海南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" rel="tag">涠洲岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" rel="tag">湖光岩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%9B%E6%B1%9F/" rel="tag">湛江</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8F%A0%E6%B5%B7/" rel="tag">珠海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" rel="tag">菲律宾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" rel="tag">薄荷岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" rel="tag">螺蛳粉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E6%B9%96/" rel="tag">西湖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" rel="tag">金沙湾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" rel="tag">骑马与砍杀</a></li></ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Alona-Beach/" style="font-size: 10px;">Alona Beach</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Bohol/" style="font-size: 10px;">Bohol</a> <a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Game/" style="font-size: 17.5px;">Game</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/KCP/" style="font-size: 10px;">KCP</a> <a href="/tags/L2TP/" style="font-size: 10px;">L2TP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/Logback/" style="font-size: 10px;">Logback</a> <a href="/tags/MongoDb/" style="font-size: 10px;">MongoDb</a> <a href="/tags/Mysql/" style="font-size: 12.5px;">Mysql</a> <a href="/tags/NPC/" style="font-size: 10px;">NPC</a> <a href="/tags/Origin/" style="font-size: 10px;">Origin</a> <a href="/tags/Philippines/" style="font-size: 10px;">Philippines</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/RedisTemplate/" style="font-size: 10px;">RedisTemplate</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Slf4j/" style="font-size: 10px;">Slf4j</a> <a href="/tags/SoftEther/" style="font-size: 10px;">SoftEther</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 17.5px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/UDP2RAW/" style="font-size: 10px;">UDP2RAW</a> <a href="/tags/Unity/" style="font-size: 15px;">Unity</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/WebSocket/" style="font-size: 10px;">WebSocket</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Youtube/" style="font-size: 10px;">Youtube</a> <a href="/tags/%E4%B8%89%E4%BA%9A/" style="font-size: 10px;">三亚</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 10px;">上海</a> <a href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" style="font-size: 10px;">东海岛</a> <a href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" style="font-size: 10px;">兵种树</a> <a href="/tags/%E5%8C%97%E6%B5%B7/" style="font-size: 10px;">北海</a> <a href="/tags/%E5%A4%96%E6%BB%A9/" style="font-size: 10px;">外滩</a> <a href="/tags/%E5%B9%BF%E4%B8%9C/" style="font-size: 10px;">广东</a> <a href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" style="font-size: 10px;">御温泉</a> <a href="/tags/%E6%9D%AD%E5%B7%9E/" style="font-size: 10px;">杭州</a> <a href="/tags/%E6%9F%B3%E5%B7%9E/" style="font-size: 12.5px;">柳州</a> <a href="/tags/%E6%B5%B7%E5%8D%97/" style="font-size: 10px;">海南</a> <a href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" style="font-size: 10px;">涠洲岛</a> <a href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" style="font-size: 10px;">湖光岩</a> <a href="/tags/%E6%B9%9B%E6%B1%9F/" style="font-size: 12.5px;">湛江</a> <a href="/tags/%E7%8F%A0%E6%B5%B7/" style="font-size: 10px;">珠海</a> <a href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" style="font-size: 10px;">菲律宾</a> <a href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" style="font-size: 10px;">薄荷岛</a> <a href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" style="font-size: 12.5px;">螺蛳粉</a> <a href="/tags/%E8%A5%BF%E6%B9%96/" style="font-size: 10px;">西湖</a> <a href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" style="font-size: 10px;">金沙湾</a> <a href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" style="font-size: 12.5px;">骑马与砍杀</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/">2022.10.05 柳州二游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/14/Tourism-Of-LiuZhou-2021-12-03/">2021.12.03 柳州旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2021/">2021.10.6-10.7 湛江旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/09/Tourism-Of-Zhuhai-21-Nov-2020/">2020.11.21 珠海御温泉</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/14/Tourism-Of-Sanya-Aug-2020/">2020.7.31-8.4 三亚自由行</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Anderson Feng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

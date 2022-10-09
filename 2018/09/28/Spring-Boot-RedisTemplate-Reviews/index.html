@@ -1,35 +1,288 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
+  
+  <title>Spring Boot RedisTemplate使用心得 | Anderson&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Spring Boot提供了很人性化的redis bean RedisTemplate,可默认的key value 可读性不怎么好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot RedisTemplate使用心得">
+<meta property="og:url" content="https://andersonfeng.github.io/2018/09/28/Spring-Boot-RedisTemplate-Reviews/index.html">
+<meta property="og:site_name" content="Anderson&#39;s blog">
+<meta property="og:description" content="Spring Boot提供了很人性化的redis bean RedisTemplate,可默认的key value 可读性不怎么好">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Spring-Boot-RedisTemplate-Reviews/redis-value%E4%B9%B1%E7%A0%81.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Spring-Boot-RedisTemplate-Reviews/%E6%B2%A1%E6%9C%89%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84json%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Spring-Boot-RedisTemplate-Reviews/json%E6%95%B0%E6%8D%AE%E6%B2%A1%E6%9C%89%E5%B8%A6%E5%85%A5%E7%B1%BB%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Spring-Boot-RedisTemplate-Reviews/redis-value-%E4%B8%AD%E6%96%87%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Spring-Boot-RedisTemplate-Reviews/redis-value-%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87.png">
+<meta property="article:published_time" content="2018-09-28T03:29:01.000Z">
+<meta property="article:modified_time" content="2020-04-06T04:54:39.000Z">
+<meta property="article:author" content="Anderson Feng">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Spring Boot">
+<meta property="article:tag" content="Redis">
+<meta property="article:tag" content="RedisTemplate">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://andersonfeng.github.io/images/Spring-Boot-RedisTemplate-Reviews/redis-value%E4%B9%B1%E7%A0%81.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Anderson&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-{% block page_class %}page-post-detail{% endblock %}
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Anderson&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://andersonfeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Spring-Boot-RedisTemplate-Reviews" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/28/Spring-Boot-RedisTemplate-Reviews/" class="article-date">
+  <time datetime="2018-09-28T03:29:01.000Z" itemprop="datePublished">2018-09-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/programming/">编程</a>
+  </div>
 
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring Boot RedisTemplate使用心得
+    </h1>
+  
 
-{% block content %}
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote class="blockquote-center"><p>Spring Boot提供了很人性化的redis bean <code>RedisTemplate</code>,可默认的key value 可读性不怎么好</p>
+</blockquote>
+<span id="more"></span>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<ul>
+<li><code>RedisTemplate</code>的key序列化使用<code>JdkSerializationRedisSerializer</code>,所以key会带上类信息的乱码,导致key值可读性差    <ul>
+<li><code>RedisTemplate.class</code> <code>afterPropertiesSet()</code>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">if</span> (<span class="built_in">this</span>.defaultSerializer == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.defaultSerializer = <span class="keyword">new</span> <span class="title class_">JdkSerializationRedisSerializer</span>(<span class="built_in">this</span>.classLoader != <span class="literal">null</span> ? <span class="built_in">this</span>.classLoader : <span class="built_in">this</span>.getClass().getClassLoader());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>初始化的key就是这样的,在实际的key前面加入了序列化后的类信息,造成key值可读性变差  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">20050) &quot;\xac\xed\x00\x05t\x00ECOMMENT_ID:4726_STATUS:0_TYPE:0_UUID:0d43e283bef011e782656c92bf471308&quot;</span><br><span class="line">20051) &quot;\xac\xed\x00\x05t\x00ECOMMENT_ID:8246_STATUS:0_TYPE:0_UUID:02dbce08bef011e782656c92bf471308&quot;</span><br></pre></td></tr></table></figure></li>
+<li>修改redisTemplate的默认序列化方法为<code>StringRedisSerializer</code>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">RedisTemplate <span class="title function_">getRedisTemplate</span><span class="params">(RedisTemplate redisTemplate)</span> &#123;</span><br><span class="line">    <span class="comment">//redistemplate原生中key是用JdkSerializationRedisSerializer</span></span><br><span class="line">    <span class="comment">//会引入类信息导致key值不可读</span></span><br><span class="line">    <span class="comment">//把key序列化方法改成string的就解决了这个问题</span></span><br><span class="line">    <span class="type">StringRedisSerializer</span> <span class="variable">stringRedisSerializer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringRedisSerializer</span>();</span><br><span class="line">    redisTemplate.setKeySerializer(stringRedisSerializer);</span><br><span class="line">    redisTemplate.setHashKeySerializer(stringRedisSerializer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>修改redisTemplate后,在redis中存的key值就变成可读性强的字符串  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">20059) &quot;COMMENT_ID:7365_STATUS:0_TYPE:0_UUID:02808b75bef011e782656c92bf471308&quot;</span><br><span class="line">20060) &quot;COMMENT_ID:5365_STATUS:0_TYPE:0_UUID:021c38e9bef011e782656c92bf471308&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><code>RedisTemplate</code>默认value序列化可读性很差<ul>
+<li>value可读性很差  <img src="/images/Spring-Boot-RedisTemplate-Reviews/redis-value%E4%B9%B1%E7%A0%81.png" class="" title="redis-value乱码"></li>
+<li>修改redisTemplate的value序列化方法<ul>
+<li>实现<code>RedisSerializer</code>接口的方法有几个,springboot默认使用的json工具是jackson,jackson实现类有两个<code>GenericJackson2JsonRedisSerializer</code>和<code>Jackson2JsonRedisSerializer</code>,两个都可以选择设置objectMapper,这样可以将配置文件中设置的json格式同步到redis的序列化json格式(比如时间格式),但使用<code>Jackson2JsonRedisSerializer</code>反序列化出现了问题,所以这里选择<code>GenericJackson2JsonRedisSerializer</code><ul>
+<li><img src="/images/Spring-Boot-RedisTemplate-Reviews/%E6%B2%A1%E6%9C%89%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84json%E6%A0%BC%E5%BC%8F.png" class="" title="没有同步配置文件的json格式"></li>
+</ul>
+</li>
+<li>光设置了<code>GenericJackson2JsonRedisSerializer</code>,反序列化也是会出问题,因为序列化时没有带入类信息,进行泛型转换时会报出<code>java.util.LinkedHashMap cannot be cast to xxx</code>的错误,因为此时从redis取出来的数据结构是LinkedHashMap,所以objectMapper需要设置保留类型<code>enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL)</code><ul>
+<li><img src="/images/Spring-Boot-RedisTemplate-Reviews/json%E6%95%B0%E6%8D%AE%E6%B2%A1%E6%9C%89%E5%B8%A6%E5%85%A5%E7%B1%BB%E4%BF%A1%E6%81%AF.png" class="" title="json数据没有带入类信息"></li>
+</ul>
+</li>
+<li>把Spring Boot的objectMapper Bean设置了默认类型,会导致Spring Boot的<code>@RequestBody</code>报错<code>Unexpected token (START_OBJECT), expected START_ARRAY错误</code>,所以不能直接修改objectMapper,需要克隆一份来设置,幸好objectMapper提供了copy方法  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Bean</span></span><br><span class="line">RedisTemplate <span class="title function_">getRedisTemplate</span><span class="params">(RedisTemplate redisTemplate)</span> &#123;        </span><br><span class="line">    <span class="comment">//使redis中的value存入json对象,所以使用bean中的objectMapper</span></span><br><span class="line">    <span class="comment">//不改变objectMapper的属性,因为全局的objectMapper设置了enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL))</span></span><br><span class="line">    <span class="comment">//会导致@RequestBody出现Unexpected token (START_OBJECT), expected START_ARRAY错误</span></span><br><span class="line">    <span class="type">GenericJackson2JsonRedisSerializer</span> <span class="variable">genericJackson2JsonRedisSerializer</span> <span class="operator">=</span></span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">GenericJackson2JsonRedisSerializer</span>(objectMapper.copy().enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL));</span><br><span class="line">    redisTemplate.setValueSerializer(genericJackson2JsonRedisSerializer);</span><br><span class="line">    redisTemplate.setHashValueSerializer(genericJackson2JsonRedisSerializer);</span><br><span class="line">    <span class="keyword">return</span> redisTemplate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>发现value可读性好了许多,但中文部分显示会出现异常  <img src="/images/Spring-Boot-RedisTemplate-Reviews/redis-value-%E4%B8%AD%E6%96%87%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81.png" class="" title="redis-value-中文出现乱码"></li>
+<li>平常进入redis客户端的命令是<code>redis-cli</code>,要想正常显示中文,得用<code>redis-cli --raw</code>  <img src="/images/Spring-Boot-RedisTemplate-Reviews/redis-value-%E6%AD%A3%E7%A1%AE%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87.png" class="" title="redis-value-正确显示中文"></li>
+</ul>
+</li>
+</ul>
+<blockquote class="blockquote-center"><p>总结:<br>将redisTemplate的key序列化方式设置为<code>StringRedisSerializer</code>可增加key可读性,将value序列化方式设置为<code>GenericJackson2JsonRedisSerializer</code>,可将存到redis中的json value格式同步为系统的配置,增加value可读性.</p>
+</blockquote>
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://andersonfeng.github.io/2018/09/28/Spring-Boot-RedisTemplate-Reviews/" data-id="cl90v4vpt000qy2wvcg2zfvc2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RedisTemplate/" rel="tag">RedisTemplate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/28/Spring-Boot-multiDataSource/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Spring Boot 双数据源
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/12/About-Spring-Boot-2.0.4.RELEASE-Upgrade-To-Spring-Boot-2.1.0.M2-Encountered-Mysql-TimeZone-Problem/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于Spring Boot 2.0.4.RELEASE 升级 Spring Boot 2.1.0.M2遇到的Mysql时区问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">编程</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alona-Beach/" rel="tag">Alona Beach</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bohol/" rel="tag">Bohol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game/" rel="tag">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KCP/" rel="tag">KCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/L2TP/" rel="tag">L2TP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/" rel="tag">Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Logback/" rel="tag">Logback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/" rel="tag">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPC/" rel="tag">NPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Origin/" rel="tag">Origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Philippines/" rel="tag">Philippines</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RedisTemplate/" rel="tag">RedisTemplate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/" rel="tag">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks/" rel="tag">Shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Singleton/" rel="tag">Singleton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slf4j/" rel="tag">Slf4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SoftEther/" rel="tag">SoftEther</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP2RAW/" rel="tag">UDP2RAW</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Youtube/" rel="tag">Youtube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E4%BA%9A/" rel="tag">三亚</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E6%B5%B7/" rel="tag">上海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" rel="tag">东海岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" rel="tag">兵种树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E6%B5%B7/" rel="tag">北海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E6%BB%A9/" rel="tag">外滩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E4%B8%9C/" rel="tag">广东</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" rel="tag">御温泉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%AD%E5%B7%9E/" rel="tag">杭州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%B3%E5%B7%9E/" rel="tag">柳州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%B7%E5%8D%97/" rel="tag">海南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" rel="tag">涠洲岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" rel="tag">湖光岩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%9B%E6%B1%9F/" rel="tag">湛江</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8F%A0%E6%B5%B7/" rel="tag">珠海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" rel="tag">菲律宾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" rel="tag">薄荷岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" rel="tag">螺蛳粉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E6%B9%96/" rel="tag">西湖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" rel="tag">金沙湾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" rel="tag">骑马与砍杀</a></li></ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Alona-Beach/" style="font-size: 10px;">Alona Beach</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Bohol/" style="font-size: 10px;">Bohol</a> <a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Game/" style="font-size: 17.5px;">Game</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/KCP/" style="font-size: 10px;">KCP</a> <a href="/tags/L2TP/" style="font-size: 10px;">L2TP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/Logback/" style="font-size: 10px;">Logback</a> <a href="/tags/MongoDb/" style="font-size: 10px;">MongoDb</a> <a href="/tags/Mysql/" style="font-size: 12.5px;">Mysql</a> <a href="/tags/NPC/" style="font-size: 10px;">NPC</a> <a href="/tags/Origin/" style="font-size: 10px;">Origin</a> <a href="/tags/Philippines/" style="font-size: 10px;">Philippines</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/RedisTemplate/" style="font-size: 10px;">RedisTemplate</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Slf4j/" style="font-size: 10px;">Slf4j</a> <a href="/tags/SoftEther/" style="font-size: 10px;">SoftEther</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 17.5px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/UDP2RAW/" style="font-size: 10px;">UDP2RAW</a> <a href="/tags/Unity/" style="font-size: 15px;">Unity</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/WebSocket/" style="font-size: 10px;">WebSocket</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Youtube/" style="font-size: 10px;">Youtube</a> <a href="/tags/%E4%B8%89%E4%BA%9A/" style="font-size: 10px;">三亚</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 10px;">上海</a> <a href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" style="font-size: 10px;">东海岛</a> <a href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" style="font-size: 10px;">兵种树</a> <a href="/tags/%E5%8C%97%E6%B5%B7/" style="font-size: 10px;">北海</a> <a href="/tags/%E5%A4%96%E6%BB%A9/" style="font-size: 10px;">外滩</a> <a href="/tags/%E5%B9%BF%E4%B8%9C/" style="font-size: 10px;">广东</a> <a href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" style="font-size: 10px;">御温泉</a> <a href="/tags/%E6%9D%AD%E5%B7%9E/" style="font-size: 10px;">杭州</a> <a href="/tags/%E6%9F%B3%E5%B7%9E/" style="font-size: 12.5px;">柳州</a> <a href="/tags/%E6%B5%B7%E5%8D%97/" style="font-size: 10px;">海南</a> <a href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" style="font-size: 10px;">涠洲岛</a> <a href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" style="font-size: 10px;">湖光岩</a> <a href="/tags/%E6%B9%9B%E6%B1%9F/" style="font-size: 12.5px;">湛江</a> <a href="/tags/%E7%8F%A0%E6%B5%B7/" style="font-size: 10px;">珠海</a> <a href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" style="font-size: 10px;">菲律宾</a> <a href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" style="font-size: 10px;">薄荷岛</a> <a href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" style="font-size: 12.5px;">螺蛳粉</a> <a href="/tags/%E8%A5%BF%E6%B9%96/" style="font-size: 10px;">西湖</a> <a href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" style="font-size: 10px;">金沙湾</a> <a href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" style="font-size: 12.5px;">骑马与砍杀</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/">2022.10.05 柳州二游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/14/Tourism-Of-LiuZhou-2021-12-03/">2021.12.03 柳州旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2021/">2021.10.6-10.7 湛江旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/09/Tourism-Of-Zhuhai-21-Nov-2020/">2020.11.21 珠海御温泉</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/14/Tourism-Of-Sanya-Aug-2020/">2020.7.31-8.4 三亚自由行</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Anderson Feng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

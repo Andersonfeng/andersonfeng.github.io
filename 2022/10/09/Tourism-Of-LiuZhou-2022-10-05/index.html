@@ -1,35 +1,348 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>2022.10.05 柳州二游 | Anderson&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有网友说去柳州玩只有0次和N次 现在N&gt;1啦    出行 我们从3个城市出发,差不多同时到柳州  城市便捷酒店 上次来柳州我们来了五星街2次,这次直接就住在五星街的酒店,每天订的价格还不一样,国庆前电话订的价格2天是1000出头,过几天变成800+,入住前一天变成745,到店后前台还帮忙办张会员卡价格变成728  久夏家炸串 &amp;&amp; 五星街六品坊螺蛳粉 吃个炸串填填肚子 在酒店">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022.10.05 柳州二游">
+<meta property="og:url" content="https://andersonfeng.github.io/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/index.html">
+<meta property="og:site_name" content="Anderson&#39;s blog">
+<meta property="og:description" content="有网友说去柳州玩只有0次和N次 现在N&gt;1啦    出行 我们从3个城市出发,差不多同时到柳州  城市便捷酒店 上次来柳州我们来了五星街2次,这次直接就住在五星街的酒店,每天订的价格还不一样,国庆前电话订的价格2天是1000出头,过几天变成800+,入住前一天变成745,到店后前台还帮忙办张会员卡价格变成728  久夏家炸串 &amp;&amp; 五星街六品坊螺蛳粉 吃个炸串填填肚子 在酒店">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%B9%BF%E5%B7%9E%E5%88%B0%E6%9F%B3%E5%B7%9E%E5%8A%A8%E8%BD%A6.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%9F%8E%E5%B8%82%E4%BE%BF%E6%8D%B7%E9%85%92%E5%BA%971.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%9F%8E%E5%B8%82%E4%BE%BF%E6%8D%B7%E9%85%92%E5%BA%972.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E4%B9%85%E5%A4%8F%E5%AE%B6%E7%82%B8%E4%B8%B2.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%85%AD%E5%93%81%E5%9D%8A%E8%9E%BA%E8%9B%B3%E7%B2%891.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%85%AD%E5%93%81%E5%9D%8A%E8%9E%BA%E8%9B%B3%E7%B2%892.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E6%9F%B3%E6%B1%9F1.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E6%9F%B3%E6%B1%9F2.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E7%9C%BC%E9%95%9C%E5%91%B3%E9%81%93.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E6%9F%B3%E6%B1%9F%E5%96%B7%E6%B3%89.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E7%AA%91%E5%9F%A0%E5%8F%A4%E9%95%871.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E7%AA%91%E5%9F%A0%E5%8F%A4%E9%95%872.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E7%AA%91%E5%9F%A0%E5%8F%A4%E9%95%873.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%83%9C%E5%88%A9%E7%83%A7%E7%83%A4%E5%9F%8E1.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%83%9C%E5%88%A9%E7%83%A7%E7%83%A4%E5%9F%8E2.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E6%B5%B7%E5%8D%97%E6%B8%85%E8%A1%A5%E5%87%891.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E6%B5%B7%E5%8D%97%E6%B8%85%E8%A1%A5%E5%87%892.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E9%9D%92%E4%BA%91%E8%A1%971.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E9%9D%92%E4%BA%91%E8%A1%972.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E9%9D%92%E4%BA%91%E8%A1%973.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E9%BE%99%E6%BD%AD%E5%B1%B11.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E9%BE%99%E6%BD%AD%E5%B1%B12.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E9%BE%99%E6%BD%AD%E5%B1%B13.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%82%A5%E8%9E%BA%E5%BA%841.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%82%A5%E8%9E%BA%E5%BA%842.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%82%A5%E8%9E%BA%E5%BA%843.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%82%A5%E8%9E%BA%E5%BA%844.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E9%A3%8E%E6%83%85%E6%B8%AF%E7%BE%8E%E9%A3%9F%E8%A1%971.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E9%A3%8E%E6%83%85%E6%B8%AF%E7%BE%8E%E9%A3%9F%E8%A1%972.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E9%A3%8E%E6%83%85%E6%B8%AF%E7%BE%8E%E9%A3%9F%E8%A1%973.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%BE%A1%E5%93%81%E5%A0%82%E8%B6%B3%E7%96%971.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%BE%A1%E5%93%81%E5%A0%82%E8%B6%B3%E7%96%972.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%BE%A1%E5%93%81%E5%A0%82%E8%B6%B3%E7%96%973.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%83%9C%E5%88%A9%E7%83%A7%E7%83%A4%E5%9F%8E3.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%83%9C%E5%88%A9%E7%83%A7%E7%83%A4%E5%9F%8E4.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%83%9C%E5%88%A9%E7%83%A7%E7%83%A4%E5%9F%8E5.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E8%83%9C%E5%88%A9%E7%83%A7%E7%83%A4%E5%9F%8E6.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/OK%E5%8D%B7%E7%B2%89.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E6%9F%B3%E5%B7%9E%E5%88%B0%E5%B9%BF%E5%B7%9E%E5%8A%A8%E8%BD%A6.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%B9%BF%E5%B7%9E%E7%B2%A4%E9%99%88%E8%AE%B0.jpg">
+<meta property="article:published_time" content="2022-10-09T02:06:25.000Z">
+<meta property="article:modified_time" content="2022-10-09T03:27:07.000Z">
+<meta property="article:author" content="Anderson Feng">
+<meta property="article:tag" content="柳州">
+<meta property="article:tag" content="螺蛳粉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://andersonfeng.github.io/images/Tourism-Of-LiuZhou-2022-10-05/%E5%B9%BF%E5%B7%9E%E5%88%B0%E6%9F%B3%E5%B7%9E%E5%8A%A8%E8%BD%A6.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Anderson&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Anderson&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://andersonfeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Tourism-Of-LiuZhou-2022-10-05" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/" class="article-date">
+  <time datetime="2022-10-09T02:06:25.000Z" itemprop="datePublished">2022-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2022.10.05 柳州二游
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote class="blockquote-center"><p>有网友说去柳州玩只有0次和N次</p>
+<p>现在N&gt;1啦</p>
+</blockquote>
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<h3 id="出行"><a href="#出行" class="headerlink" title="出行"></a>出行</h3><ul>
+<li>我们从3个城市出发,差不多同时到柳州<img src="/images/Tourism-Of-LiuZhou-2022-10-05/广州到柳州动车.png" title="广州到柳州动车" width="100%"></li>
+</ul>
+<h3 id="城市便捷酒店"><a href="#城市便捷酒店" class="headerlink" title="城市便捷酒店"></a>城市便捷酒店</h3><ul>
+<li>上次来柳州我们来了五星街2次,这次直接就住在五星街的酒店,每天订的价格还不一样,国庆前电话订的价格2天是1000出头,过几天变成800+,入住前一天变成745,到店后前台还帮忙办张会员卡价格变成728<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/城市便捷酒店1.jpg" title="看看昆仑神宫" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/城市便捷酒店2.jpg" title="家庭房还挺大" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="久夏家炸串-amp-amp-五星街六品坊螺蛳粉"><a href="#久夏家炸串-amp-amp-五星街六品坊螺蛳粉" class="headerlink" title="久夏家炸串 &amp;&amp; 五星街六品坊螺蛳粉"></a>久夏家炸串 &amp;&amp; 五星街六品坊螺蛳粉</h3><ul>
+<li>吃个炸串填填肚子</li>
+<li>在酒店休息了一下,柳州土著就来带我们到楼下的老店吃螺蛳粉,话说为什么本地人吃得这么清淡…<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/久夏家炸串.jpg" title="油腻一下" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/六品坊螺蛳粉1.jpg" title="料太多一碗装不下" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/六品坊螺蛳粉2.jpg" title="本地人吃这么清淡么" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="柳江"><a href="#柳江" class="headerlink" title="柳江"></a>柳江</h3><ul>
+<li>我们还有朋友在开车来柳州的路上,尚未到饭店,我们就在柳江边吹吹水,闲逛一下<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/柳江1.jpg" title="水很干净" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/柳江2.jpg" title="夕阳不错" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="五星街眼镜味道"><a href="#五星街眼镜味道" class="headerlink" title="五星街眼镜味道"></a>五星街眼镜味道</h3><ul>
+<li>将近饭点,我们提前10分钟到五星街的眼睛味道拿了号,高分饭点果然很多人派对,这的价格很亲民,6个人不到240<img src="/images/Tourism-Of-LiuZhou-2022-10-05/眼镜味道.jpg" title="好实惠啊!" width="100%"></li>
+</ul>
+<h3 id="柳江喷泉"><a href="#柳江喷泉" class="headerlink" title="柳江喷泉"></a>柳江喷泉</h3><ul>
+<li>吃饱喝足我们到柳江边上等待着喷泉节目,上次来柳州错过了这次要把握住</li>
+<li>柳州政府能做这么一项公益节目,感觉柳州的市民挺幸福的<img src="/images/Tourism-Of-LiuZhou-2022-10-05/柳江喷泉.jpg" title="大喷泉光看不拍照了" width="100%"></li>
+</ul>
+<h3 id="窑埠古镇"><a href="#窑埠古镇" class="headerlink" title="窑埠古镇"></a>窑埠古镇</h3><ul>
+<li>上次是白天来逛的窑埠古镇,没见到几个人,这次可以来凑凑热闹了<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/窑埠古镇1.jpg" title="窑埠古镇" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/窑埠古镇2.jpg" title="窑埠古镇" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/窑埠古镇3.jpg" title="窑埠古镇" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="胜利烧烤城"><a href="#胜利烧烤城" class="headerlink" title="胜利烧烤城"></a>胜利烧烤城</h3><ul>
+<li>胜利烧烤城给过我们很不错的体验,烧烤豆浆加炒冰,这次差不多11点过来发现特别特别多人<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/胜利烧烤城1.jpg" title="密密" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/胜利烧烤城2.jpg" title="麻麻" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="海南清补凉"><a href="#海南清补凉" class="headerlink" title="海南清补凉"></a>海南清补凉</h3><ul>
+<li>感觉今晚烧烤城是排不到了,在旁边找了一家海南清补凉解解渴,这10块钱1碗的分量十分良心了<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/海南清补凉1.jpg" title="人均10块,好大碗啊" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/海南清补凉2.jpg" title="海南清补凉" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="青云街"><a href="#青云街" class="headerlink" title="青云街"></a>青云街</h3><ul>
+<li>第二天下了点小雨,我们去附近的妇幼做了核酸就到青云街逛逛,这里应该是老区的早市,来体验一下本地人的早市生活</li>
+<li>吃个粉还碰到了美食up主,不知道有没有上电视<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/青云街1.jpg" title="不知道是啥,好多人排队" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/青云街2.jpg" title="这个点餐靠吼" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/青云街3.jpg" title="遇上美食UP主了" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="龙潭山"><a href="#龙潭山" class="headerlink" title="龙潭山"></a>龙潭山</h3><ul>
+<li>跟朋友约好一起到龙潭山逛逛,真是山清水秀<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/龙潭山1.jpg" title="水秀" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/龙潭山2.jpg" title="山青" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/龙潭山3.jpg" title="这就封顶了?" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="肥螺庄-amp-amp-对面豆浆"><a href="#肥螺庄-amp-amp-对面豆浆" class="headerlink" title="肥螺庄 &amp;&amp; 对面豆浆"></a>肥螺庄 &amp;&amp; 对面豆浆</h3><ul>
+<li>爬完山理所应当下山吃个螺蛳粉,到最出名的连锁店解决温饱问题,要了对面差不多一锅冷豆浆,真爽<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/肥螺庄1.jpg" title="肥螺庄对面的冰豆浆" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/肥螺庄2.jpg" title="小煲" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/肥螺庄3.jpg" title="肥螺庄对面的*记豆浆" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/肥螺庄4.jpg" title="肥螺庄" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="风情港美食街"><a href="#风情港美食街" class="headerlink" title="风情港美食街"></a>风情港美食街</h3><ul>
+<li>回酒店休息了一下,我们逛着逛着就逛不动了,因为碰到了江边的小吃摊<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/风情港美食街1.jpg" title="车轮饼" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/风情港美食街2.jpg" title="这小桌子真有意思" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/风情港美食街3.jpg" title="风情港美食街" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="御品堂足疗"><a href="#御品堂足疗" class="headerlink" title="御品堂足疗"></a>御品堂足疗</h3><ul>
+<li>夜深还想着去胜利烧烤城,所以小吃摊不能多待,我们在点评上找到了这家足疗店,很有意思,一般足疗店进店是选技师和项目就开始了,这家店进店先换鞋,还可以换衣服,洗澡汗蒸自助餐,看起来按摩只是其中的部分项目,虽然二楼女前台的态度蛮横,但是楼下搞清洁的阿姨十分和蔼<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/御品堂足疗1.jpg" title="御品堂足疗" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/御品堂足疗2.jpg" title="自助餐" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/御品堂足疗3.jpg" title="吃上了" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="胜利烧烤城-1"><a href="#胜利烧烤城-1" class="headerlink" title="胜利烧烤城"></a>胜利烧烤城</h3><ul>
+<li>终于来到了心心念念的胜利烧烤城,今天人没那么多了,炒冰烤鱼豆浆油条走起<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/胜利烧烤城3.jpg" title="人少了许多" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/胜利烧烤城4.jpg" title="又来炒冰" width="100%"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/胜利烧烤城5.jpg" title="生蚝好便宜" width="100%"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-LiuZhou-2022-10-05/胜利烧烤城6.jpg" title="终于吃上" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="OK卷粉"><a href="#OK卷粉" class="headerlink" title="OK卷粉"></a>OK卷粉</h3><ul>
+<li>昨晚睡得比较晚,今天打算再试试上次吃的卷粉<img src="/images/Tourism-Of-LiuZhou-2022-10-05/OK卷粉.jpg" title="OK卷粉" width="100%"></li>
+</ul>
+<h3 id="西环肥仔螺蛳粉"><a href="#西环肥仔螺蛳粉" class="headerlink" title="西环肥仔螺蛳粉"></a>西环肥仔螺蛳粉</h3><ul>
+<li>卷粉没达到预期,我们留了肚子打算再填一碗螺蛳粉</li>
+</ul>
+<h3 id="返程"><a href="#返程" class="headerlink" title="返程"></a>返程</h3><img src="/images/Tourism-Of-LiuZhou-2022-10-05/柳州到广州动车.png" title="柳州到广州动车" width="100%">
 
-{% block page_class %}page-post-detail{% endblock %}
+<ul>
+<li>去了广州的粤陈记粥底火锅吃回归餐<img src="/images/Tourism-Of-LiuZhou-2022-10-05/广州粤陈记.jpg" title="广州粤陈记" width="100%"></li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>第二次柳州的吃喝玩乐体验还是很不错的,有柳州朋友一起聚一聚,柳州的发展也是令人期待</li>
+<li>柳州人对外来人很包容,几个司机唠嗑体验蛮不错的</li>
+<li>应该还有下次</li>
+</ul>
+<p>|消费	|项目|<br>|-|<br>|13.8	|打车|<br>|75	|炸串|<br>|728	|住宿|<br>|12	|打车到窑埠古镇|<br>|20.7	|打车到胜利烧烤城|<br>|34	|海南清补凉|<br>|16	|打车到酒店|<br>|29	|潘姐|<br>|15	|河粉|<br>|192	|肥螺庄|<br>|30	|豆浆|<br>|25	|张飞木薯羹|<br>|12	|田螺|<br>|10	|车轮饼|<br>|405	|按摩|<br>|18	|打的到胜利烧烤城|<br>|24	|生蚝|<br>|50	|炒冰|<br>|65	|烤鱼 通心菜|<br>|19.2	|打车回酒店|<br>|30	|ok宽粉|<br>|18	|打车到柳州站|<br>|669	|回广州动车|<br>|279	|广州回归餐|</p>
+<ul>
+<li>总计 2789.7(人均929.9+去程动车费)</li>
+</ul>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://andersonfeng.github.io/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/" data-id="cl90v4vpy001ay2wvamz3cwfz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9F%B3%E5%B7%9E/" rel="tag">柳州</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" rel="tag">螺蛳粉</a></li></ul>
 
-{% block content %}
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/12/14/Tourism-Of-LiuZhou-2021-12-03/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2021.12.03 柳州旅游</div>
+    </a>
+  
+</nav>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  
+</article>
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">编程</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alona-Beach/" rel="tag">Alona Beach</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bohol/" rel="tag">Bohol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game/" rel="tag">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KCP/" rel="tag">KCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/L2TP/" rel="tag">L2TP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/" rel="tag">Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Logback/" rel="tag">Logback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/" rel="tag">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPC/" rel="tag">NPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Origin/" rel="tag">Origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Philippines/" rel="tag">Philippines</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RedisTemplate/" rel="tag">RedisTemplate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/" rel="tag">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks/" rel="tag">Shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Singleton/" rel="tag">Singleton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slf4j/" rel="tag">Slf4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SoftEther/" rel="tag">SoftEther</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP2RAW/" rel="tag">UDP2RAW</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Youtube/" rel="tag">Youtube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E4%BA%9A/" rel="tag">三亚</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E6%B5%B7/" rel="tag">上海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" rel="tag">东海岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" rel="tag">兵种树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E6%B5%B7/" rel="tag">北海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E6%BB%A9/" rel="tag">外滩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E4%B8%9C/" rel="tag">广东</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" rel="tag">御温泉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%AD%E5%B7%9E/" rel="tag">杭州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%B3%E5%B7%9E/" rel="tag">柳州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%B7%E5%8D%97/" rel="tag">海南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" rel="tag">涠洲岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" rel="tag">湖光岩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%9B%E6%B1%9F/" rel="tag">湛江</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8F%A0%E6%B5%B7/" rel="tag">珠海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" rel="tag">菲律宾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" rel="tag">薄荷岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" rel="tag">螺蛳粉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E6%B9%96/" rel="tag">西湖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" rel="tag">金沙湾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" rel="tag">骑马与砍杀</a></li></ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Alona-Beach/" style="font-size: 10px;">Alona Beach</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Bohol/" style="font-size: 10px;">Bohol</a> <a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Game/" style="font-size: 17.5px;">Game</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/KCP/" style="font-size: 10px;">KCP</a> <a href="/tags/L2TP/" style="font-size: 10px;">L2TP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/Logback/" style="font-size: 10px;">Logback</a> <a href="/tags/MongoDb/" style="font-size: 10px;">MongoDb</a> <a href="/tags/Mysql/" style="font-size: 12.5px;">Mysql</a> <a href="/tags/NPC/" style="font-size: 10px;">NPC</a> <a href="/tags/Origin/" style="font-size: 10px;">Origin</a> <a href="/tags/Philippines/" style="font-size: 10px;">Philippines</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/RedisTemplate/" style="font-size: 10px;">RedisTemplate</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Slf4j/" style="font-size: 10px;">Slf4j</a> <a href="/tags/SoftEther/" style="font-size: 10px;">SoftEther</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 17.5px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/UDP2RAW/" style="font-size: 10px;">UDP2RAW</a> <a href="/tags/Unity/" style="font-size: 15px;">Unity</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/WebSocket/" style="font-size: 10px;">WebSocket</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Youtube/" style="font-size: 10px;">Youtube</a> <a href="/tags/%E4%B8%89%E4%BA%9A/" style="font-size: 10px;">三亚</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 10px;">上海</a> <a href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" style="font-size: 10px;">东海岛</a> <a href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" style="font-size: 10px;">兵种树</a> <a href="/tags/%E5%8C%97%E6%B5%B7/" style="font-size: 10px;">北海</a> <a href="/tags/%E5%A4%96%E6%BB%A9/" style="font-size: 10px;">外滩</a> <a href="/tags/%E5%B9%BF%E4%B8%9C/" style="font-size: 10px;">广东</a> <a href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" style="font-size: 10px;">御温泉</a> <a href="/tags/%E6%9D%AD%E5%B7%9E/" style="font-size: 10px;">杭州</a> <a href="/tags/%E6%9F%B3%E5%B7%9E/" style="font-size: 12.5px;">柳州</a> <a href="/tags/%E6%B5%B7%E5%8D%97/" style="font-size: 10px;">海南</a> <a href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" style="font-size: 10px;">涠洲岛</a> <a href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" style="font-size: 10px;">湖光岩</a> <a href="/tags/%E6%B9%9B%E6%B1%9F/" style="font-size: 12.5px;">湛江</a> <a href="/tags/%E7%8F%A0%E6%B5%B7/" style="font-size: 10px;">珠海</a> <a href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" style="font-size: 10px;">菲律宾</a> <a href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" style="font-size: 10px;">薄荷岛</a> <a href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" style="font-size: 12.5px;">螺蛳粉</a> <a href="/tags/%E8%A5%BF%E6%B9%96/" style="font-size: 10px;">西湖</a> <a href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" style="font-size: 10px;">金沙湾</a> <a href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" style="font-size: 12.5px;">骑马与砍杀</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/">2022.10.05 柳州二游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/14/Tourism-Of-LiuZhou-2021-12-03/">2021.12.03 柳州旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2021/">2021.10.6-10.7 湛江旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/09/Tourism-Of-Zhuhai-21-Nov-2020/">2020.11.21 珠海御温泉</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/14/Tourism-Of-Sanya-Aug-2020/">2020.7.31-8.4 三亚自由行</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Anderson Feng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

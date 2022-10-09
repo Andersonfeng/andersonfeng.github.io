@@ -1,35 +1,387 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
+  
+  <title>2020.7.31-8.4 三亚自由行 | Anderson&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="室友请了一周小长假刚好妹子疫情没了工作还没上班,淡季三亚走一波">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020.7.31-8.4 三亚自由行">
+<meta property="og:url" content="https://andersonfeng.github.io/2020/08/14/Tourism-Of-Sanya-Aug-2020/index.html">
+<meta property="og:site_name" content="Anderson&#39;s blog">
+<meta property="og:description" content="室友请了一周小长假刚好妹子疫情没了工作还没上班,淡季三亚走一波">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%B8%89%E4%BA%9A%E5%B9%BF%E5%B7%9E%E6%9D%A5%E5%9B%9E%E6%9C%BA%E7%A5%A8.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%B8%89%E4%BA%9A%E6%9C%BA%E5%9C%BA2.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%B8%89%E4%BA%9A%E6%9C%BA%E5%9C%BA3.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%B8%89%E4%BA%9A%E6%9C%BA%E5%9C%BA1.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E5%87%A4%E5%87%B0%E6%9C%BA%E5%9C%BA%E5%88%B0%E7%BA%A2%E6%A0%91%E6%9E%97%E6%9C%A8%E6%A3%89%E9%85%92%E5%BA%97.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E8%82%AF%E5%BE%B7%E5%9F%BA%E5%AE%85%E6%80%A5%E9%80%81.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E6%9C%A8%E6%A3%89%E9%85%92%E5%BA%971.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E6%9C%A8%E6%A3%89%E9%85%92%E5%BA%972.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E5%A4%A7%E6%8E%92%E6%A1%A31.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E5%A4%A7%E6%8E%92%E6%A1%A32.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E6%B8%85%E8%A1%A5%E5%87%891.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E9%B9%BF%E5%9B%9E%E5%A4%B4.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E5%B0%8F%E5%90%83%E5%9F%8E.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E6%A4%B0%E5%AD%90%E9%B8%A1.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E8%8A%92%E6%9E%9C.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%BA%9A%E7%89%B9%E5%85%B0%E8%92%82%E6%96%AF%E6%B0%B4%E4%B8%96%E7%95%8C.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E6%A4%B0%E5%AD%90.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%BA%9A%E9%BE%99%E6%B9%BE1.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%BA%9A%E9%BE%99%E6%B9%BE2.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%BA%9A%E9%BE%99%E6%B9%BE3.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%BA%9A%E9%BE%99%E6%B9%BE4.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E1.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E2.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E3.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E4.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E6.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E7.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E5.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E8.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E6%B5%B7%E5%8D%97%E9%B8%A1%E9%A5%AD.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%83%AD%E5%B8%A6%E9%9B%A8%E6%9E%971.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%83%AD%E5%B8%A6%E9%9B%A8%E6%9E%972.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%83%AD%E5%B8%A6%E9%9B%A8%E6%9E%973.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%83%AD%E5%B8%A6%E9%9B%A8%E6%9E%974.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E9.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E7%BE%8E%E9%A3%9F%E5%9F%8E10.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E6%9C%BA%E5%9C%BA.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E9%BA%A6%E5%BD%93%E5%8A%B3.png">
+<meta property="article:published_time" content="2020-08-14T14:07:51.000Z">
+<meta property="article:modified_time" content="2020-09-16T11:44:29.000Z">
+<meta property="article:author" content="Anderson Feng">
+<meta property="article:tag" content="海南">
+<meta property="article:tag" content="三亚">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://andersonfeng.github.io/images/Tourism-Of-Sanya-Aug-2020/%E4%B8%89%E4%BA%9A%E5%B9%BF%E5%B7%9E%E6%9D%A5%E5%9B%9E%E6%9C%BA%E7%A5%A8.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Anderson&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-{% block page_class %}page-post-detail{% endblock %}
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Anderson&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://andersonfeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Tourism-Of-Sanya-Aug-2020" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/14/Tourism-Of-Sanya-Aug-2020/" class="article-date">
+  <time datetime="2020-08-14T14:07:51.000Z" itemprop="datePublished">2020-08-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a>
+  </div>
 
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2020.7.31-8.4 三亚自由行
+    </h1>
+  
 
-{% block content %}
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote class="blockquote-center"><p>室友请了一周小长假<br>刚好妹子疫情没了工作还没上班,<br>淡季三亚走一波</p>
+</blockquote>
+<span id="more"></span>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<h2 id="出行"><a href="#出行" class="headerlink" title="出行"></a>出行</h2><img src="/images/Tourism-Of-Sanya-Aug-2020/三亚广州来回机票.png" title="三亚广州来回机票" width="50%">
+- 2020.07.31
+- 晚上从家里触发,慢慢吞吞坐个地铁到白云机场 值机登机落地一切顺利
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+<h2 id="三亚"><a href="#三亚" class="headerlink" title="三亚"></a>三亚</h2><ul>
+<li><p>下飞机 室友在等托运的箱子 , 妹子在抓拍大鱼缸里的鲨鱼</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/三亚机场2.jpg" title="三亚机场" width="100%"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/三亚机场3.jpg" title="三亚机场" width="100%"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/三亚机场1.jpg" title="三亚机场" width="100%"></div></div></div></div>
+</li>
+<li><p>打个的从机场到我们订好的红树林度假酒店木棉酒店</p>
+  <img src="/images/Tourism-Of-Sanya-Aug-2020/凤凰机场到红树林木棉酒店.png" title="凤凰机场到红树林木棉酒店" width="100%"></li>
+<li><p>打的费滴滴上显示30+ 的士打表没到30 司机就说到了让下车, 我们还很诧异怎么实际费用会比页面上显示的低? 后来发现还差1公里司机就把我们丢下来了,什么操作?</p>
+</li>
+</ul>
+<h2 id="8-1"><a href="#8-1" class="headerlink" title="8.1"></a>8.1</h2><h3 id="红树林度假酒店木棉酒店"><a href="#红树林度假酒店木棉酒店" class="headerlink" title="红树林度假酒店木棉酒店"></a>红树林度假酒店木棉酒店</h3><ul>
+<li>差不多2点从后门进入酒店,这个红树林酒店好歹是个五星级,但周围乌漆嘛黑,啥度假设备都没有,自动柜员机还锁上了,我们三人入住提前几天预约说了加床,办理入住用了半小时,又等了半小时才加床,唯一值得庆幸的是房间还不错,不过是真的贵,房间376+加床150 526元</li>
+<li>肚子饿了,可外卖周围除了一家没啥评价的烧烤店就是肯德基,果断点了一个桶和肥宅水,妹子下去取餐时还捡了钱<img src="/images/Tourism-Of-Sanya-Aug-2020/肯德基宅急送.jpg" title="肯德基宅急送" width="50%"></li>
+</ul>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/木棉酒店1.jpg" title="木棉酒店" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/木棉酒店2.jpg" title="木棉酒店" width="100%"></div></div></div></div>
+
+<h3 id="大排档"><a href="#大排档" class="headerlink" title="大排档"></a>大排档</h3><ul>
+<li>第二天退房后我们就打车到司机给我们指的一个叫做”川湘人家”大排档吃中午,虾还不错 30+&#x2F;斤 ,鱼要100+&#x2F;斤 花甲要50+&#x2F;斤 都是坑人的, 不过我们肚子实在饿 就吃了一顿 256<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/大排档1.jpg" title="大排档" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/大排档2.jpg" title="大排档" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="全季酒店"><a href="#全季酒店" class="headerlink" title="全季酒店"></a>全季酒店</h3><ul>
+<li>上年去杭州旅游时办了华住的金卡会员,这次可以用上了,发现这个全季酒店位置挺近,复式还挺便宜 才272 一晚</li>
+</ul>
+<h3 id="鹿回头-amp-第一市场"><a href="#鹿回头-amp-第一市场" class="headerlink" title="鹿回头 &amp; 第一市场"></a>鹿回头 &amp; 第一市场</h3><ul>
+<li>在酒店稍作休整后我们就出门吃了个清补凉  <img src="/images/Tourism-Of-Sanya-Aug-2020/清补凉1.jpg" title="清补凉" width="50%"></li>
+<li>不凑巧遇上了台风,今天去不了海边玩了,下的雨时大时小,我们选了一个叫做鹿回头的景点,谁知道到了景点说台风关门了  <img src="/images/Tourism-Of-Sanya-Aug-2020/鹿回头.jpg" title="鹿回头" width="50%"></li>
+<li>于是打车去了第一市场逛逛,一下车就听见时长两边有不少人在吆喝, 之前在网上看到要注意扒手, 一靠近市场就有人一直跟着,我们在路边试吃了芒果还不错,买了两个就走了</li>
+<li>这个小吃城有个餐厅名很6  <img src="/images/Tourism-Of-Sanya-Aug-2020/小吃城.jpg" title="小吃城" width="50%"></li>
+<li>回酒店追白夜追凶…</li>
+</ul>
+<h3 id="椰子鸡-晚餐"><a href="#椰子鸡-晚餐" class="headerlink" title="椰子鸡(晚餐)"></a>椰子鸡(晚餐)</h3><ul>
+<li>看了大众点评和美团, 酒店附近 也就是咱们吃清补凉旁边有家评价还不错的椰子鸡,汤是真好喝 价格也不贵一个套餐 198  <img src="/images/Tourism-Of-Sanya-Aug-2020/椰子鸡.jpg" title="椰子鸡" width="50%"></li>
+<li>在路边的水果摊买了点水果,是真便宜,两只手那么大个芒果才4块一斤还不粘牙  <img src="/images/Tourism-Of-Sanya-Aug-2020/芒果.jpg" title="芒果" width="50%"></li>
+<li>晚上边吃水果边追白夜追凶~</li>
+</ul>
+<h2 id="8-2"><a href="#8-2" class="headerlink" title="8.2"></a>8.2</h2><h3 id="早餐-后安粉"><a href="#早餐-后安粉" class="headerlink" title="早餐-后安粉"></a>早餐-后安粉</h3><ul>
+<li>找了大众点评附近有一家小海豚连锁海鲜餐厅,人均150也不远,就想着去看看会不会贵得很离谱</li>
+<li>我们到海边的餐厅路口准备过马路时,有两个摩托车司机跟我们说不要去,那家店就是宰客的,我们也没有道听途说,真的进去看了一下,好家伙 在哪都碰不上这么贵的海鲜,价钱不记得了,基本是正常价的两三倍,然后我们出去找那摩托车司机让他送我们到昨天的大排档,1元&#x2F;人(十多年没坐过这么便宜的摩的了)</li>
+<li>附近的大排档都是虾便宜但鱼和花甲比正常价贵一两倍,单点虾还不行,于是我们边走边寻找早餐,找到了后安粉,味道一般般 可能本地人很喜欢,再来了几碗清补凉(这次我们在美团上买单,便宜了十多块钱) 回酒店休息,下午打车到亚特兰蒂斯</li>
+</ul>
+<h3 id="亚特兰蒂斯水世界"><a href="#亚特兰蒂斯水世界" class="headerlink" title="亚特兰蒂斯水世界"></a>亚特兰蒂斯水世界</h3><ul>
+<li>这个水世界的门票人均257,室友在淘宝上面买的 稍微便宜些,进去换泳裤后就不好带手机了所以没照片  <img src="/images/Tourism-Of-Sanya-Aug-2020/亚特兰蒂斯水世界.jpg" title="亚特兰蒂斯水世界" width="50%"></li>
+<li>人是真的多,什么项目都要排队,很多项目还要拿个船才能排,而那些船我们也找不到,听到有个游客在问工作人员那些船去哪里领,工作人员指了指水上说有飘过来的去拿就好了</li>
+<li>结果有一半的项目我们没有玩上,因为队伍太长了,即使是交200+的VIP也要排队将近半小时一个项目</li>
+</ul>
+<h3 id="晚餐KFC-烤鱼"><a href="#晚餐KFC-烤鱼" class="headerlink" title="晚餐KFC+烤鱼"></a>晚餐KFC+烤鱼</h3><ul>
+<li>从水世界出来又累又饿,搞了个共享电单车我们就去附近吃点KFC填填肚子,找到旁边几十米有烤鱼店,也不贵3人 148</li>
+<li>吃完回酒店,路边喝了个椰子 顺便买点水果回去看白夜追凶   <img src="/images/Tourism-Of-Sanya-Aug-2020/椰子.jpg" title="椰子" width="50%"></li>
+</ul>
+<h2 id="8-3"><a href="#8-3" class="headerlink" title="8.3"></a>8.3</h2><h3 id="早午餐-龙泉人"><a href="#早午餐-龙泉人" class="headerlink" title="早午餐-龙泉人"></a>早午餐-龙泉人</h3><ul>
+<li>司机大哥说我们酒店旁边的龙泉人就是本地人经常去的餐厅了,于是我们今天中午就试试</li>
+<li>不算贵,3人200 椰子鸡的鸡挺好吃的,不过椰子汤没有之前的好吃</li>
+</ul>
+<h3 id="亚龙湾"><a href="#亚龙湾" class="headerlink" title="亚龙湾"></a>亚龙湾</h3><ul>
+<li>我们打车去了亚龙湾玩水上项目<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/亚龙湾1.jpg" title="风景不错" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/亚龙湾2.jpg" title="换衣服的地方" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/亚龙湾3.jpg" title="交钱的地方" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/亚龙湾4.jpg" title="天气不太好" width="100%"></div></div></div></div></li>
+<li>项目也不贵 人均500 可以玩水上摩托,拖拽伞,香蕉船,还有一个什么的忘记了</li>
+<li>我们刚到时沙滩人不是很多,但是没人管理,也没人排队,来个水上摩托教练拖个人就上去了,原来开个摩托把人送上游艇就算体验过水上摩托了呀…</li>
+<li>在游艇上轮流玩拖拽伞,先拉高再放低,被放在天上的感觉很奇妙,并不觉得高挺舒服的,全程也就1分钟这样,同行的有个西安的小孩子才13岁吧就敢自己跟我们上传玩项目</li>
+<li>之后是教练开着水上摩托拖着香蕉船把我们4个送回去,原以为是最无聊的一项,我让小孩跟我一起喊”就这!” ,然后我俩一起喊,可能是教练听到了,就带着我们去转弯冲浪,那回心力大得手都抓不住,第一次同行的大哥被甩下船了,爬了回来,第二次大哥和小孩和我都被甩下船了,我们马上游回船上继续,第三次大哥还是甩下去了,然后被摩托艇带回了岸上,我们还冲了两波 贼刺激!</li>
+<li>回岸上等妹子等了好久,回来的时候她说吐船上了,挺菜的,于是我们就打道回府了</li>
+</ul>
+<h3 id="晚餐-美食城"><a href="#晚餐-美食城" class="headerlink" title="晚餐-美食城"></a>晚餐-美食城</h3><ul>
+<li><p>昨晚打车回来的时候师傅带我们走了另一条路,我们发现酒店旁边就有一个挺像样的美食城</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城1.jpg" title="人挺多" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城2.jpg" title="清补凉" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城3.jpg" title="这个大杂烩看着挺好其实挺坑的" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城4.jpg" title="路边的水果" width="100%"></div></div></div></div>
+</li>
+<li><p>吃得挺多,3人吃了300+,还买了点水果回酒店看白夜追凶</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城6.jpg" title="" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城7.jpg" title="水果挺便宜的" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城5.jpg" title="" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城8.jpg" title="买了买了" width="100%"></div></div></div></div></li>
+</ul>
+<h2 id="8-4"><a href="#8-4" class="headerlink" title="8.4"></a>8.4</h2><ul>
+<li>今晚我们就要回广州了,我们打算吃完午餐再去景点看看</li>
+</ul>
+<h3 id="海南鸡饭"><a href="#海南鸡饭" class="headerlink" title="海南鸡饭"></a>海南鸡饭</h3><ul>
+<li>来到海南想试试这边正宗的海南鸡饭,但是我们在三亚找了很多都没有靠谱的,就随便找了一家附近的,体验挺差 3人吃了170  <img src="/images/Tourism-Of-Sanya-Aug-2020/海南鸡饭.jpg" title="海南鸡饭" width="100%"></li>
+</ul>
+<h3 id="热带雨林"><a href="#热带雨林" class="headerlink" title="热带雨林"></a>热带雨林</h3><ul>
+<li>我们打车到热带雨林逛逛<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/热带雨林1.jpg" title="地图" width="100%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/热带雨林2.jpg" title="海" width="100%"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/热带雨林3.jpg" title="龙雕" width="100%"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/热带雨林4.jpg" title="海" width="100%"></div></div></div></div></li>
+<li>逛完非常累了,回酒店看看白夜追凶</li>
+</ul>
+<h3 id="晚餐-美食城-1"><a href="#晚餐-美食城-1" class="headerlink" title="晚餐-美食城"></a>晚餐-美食城</h3><ul>
+<li>晚上我们还是到美食城吃东西,<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城9.jpg" title="这是入口" width="100%"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Sanya-Aug-2020/美食城10.jpg" title="喝点椰子冻" width="100%"></div></div></div></div></li>
+</ul>
+<h3 id="回程"><a href="#回程" class="headerlink" title="回程"></a>回程</h3><ul>
+<li>由于台风,很多航班都取消了,我们的航班稍微好点 只晚点了几小时,在机场我们把白夜追凶追完了  <img src="/images/Tourism-Of-Sanya-Aug-2020/机场.jpg" title="机场" width="50%"></li>
+<li>回来之后我们还是像以前一样 吃个麦当劳再回家  <img src="/images/Tourism-Of-Sanya-Aug-2020/麦当劳.png" title="麦当劳" width="50%"></li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>海南芒果便宜又好吃</li>
+<li>三亚五星级酒店不如订华住的中高档酒店比如全季酒店</li>
+<li>椰子几块钱一个挺好喝的</li>
+<li>很多大排档店家要求顾客便宜搭着贵的买,不划算</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>台风天去不太好玩</li>
+<li>第一市场比较乱,注意扒手</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://andersonfeng.github.io/2020/08/14/Tourism-Of-Sanya-Aug-2020/" data-id="cl90v4vpz001dy2wvfj6pf4pr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%89%E4%BA%9A/" rel="tag">三亚</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%B7%E5%8D%97/" rel="tag">海南</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/12/09/Tourism-Of-Zhuhai-21-Nov-2020/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2020.11.21 珠海御温泉
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/03/SoftEtherVPN-L2TP-Local-Network/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">用SoftEther + L2TP 建立虚拟局域网</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">编程</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alona-Beach/" rel="tag">Alona Beach</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bohol/" rel="tag">Bohol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game/" rel="tag">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KCP/" rel="tag">KCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/L2TP/" rel="tag">L2TP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/" rel="tag">Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Logback/" rel="tag">Logback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/" rel="tag">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPC/" rel="tag">NPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Origin/" rel="tag">Origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Philippines/" rel="tag">Philippines</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RedisTemplate/" rel="tag">RedisTemplate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/" rel="tag">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks/" rel="tag">Shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Singleton/" rel="tag">Singleton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slf4j/" rel="tag">Slf4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SoftEther/" rel="tag">SoftEther</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP2RAW/" rel="tag">UDP2RAW</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Youtube/" rel="tag">Youtube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E4%BA%9A/" rel="tag">三亚</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E6%B5%B7/" rel="tag">上海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" rel="tag">东海岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" rel="tag">兵种树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E6%B5%B7/" rel="tag">北海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E6%BB%A9/" rel="tag">外滩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E4%B8%9C/" rel="tag">广东</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" rel="tag">御温泉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%AD%E5%B7%9E/" rel="tag">杭州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%B3%E5%B7%9E/" rel="tag">柳州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%B7%E5%8D%97/" rel="tag">海南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" rel="tag">涠洲岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" rel="tag">湖光岩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%9B%E6%B1%9F/" rel="tag">湛江</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8F%A0%E6%B5%B7/" rel="tag">珠海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" rel="tag">菲律宾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" rel="tag">薄荷岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" rel="tag">螺蛳粉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E6%B9%96/" rel="tag">西湖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" rel="tag">金沙湾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" rel="tag">骑马与砍杀</a></li></ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Alona-Beach/" style="font-size: 10px;">Alona Beach</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Bohol/" style="font-size: 10px;">Bohol</a> <a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Game/" style="font-size: 17.5px;">Game</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/KCP/" style="font-size: 10px;">KCP</a> <a href="/tags/L2TP/" style="font-size: 10px;">L2TP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/Logback/" style="font-size: 10px;">Logback</a> <a href="/tags/MongoDb/" style="font-size: 10px;">MongoDb</a> <a href="/tags/Mysql/" style="font-size: 12.5px;">Mysql</a> <a href="/tags/NPC/" style="font-size: 10px;">NPC</a> <a href="/tags/Origin/" style="font-size: 10px;">Origin</a> <a href="/tags/Philippines/" style="font-size: 10px;">Philippines</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/RedisTemplate/" style="font-size: 10px;">RedisTemplate</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Slf4j/" style="font-size: 10px;">Slf4j</a> <a href="/tags/SoftEther/" style="font-size: 10px;">SoftEther</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 17.5px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/UDP2RAW/" style="font-size: 10px;">UDP2RAW</a> <a href="/tags/Unity/" style="font-size: 15px;">Unity</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/WebSocket/" style="font-size: 10px;">WebSocket</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Youtube/" style="font-size: 10px;">Youtube</a> <a href="/tags/%E4%B8%89%E4%BA%9A/" style="font-size: 10px;">三亚</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 10px;">上海</a> <a href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" style="font-size: 10px;">东海岛</a> <a href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" style="font-size: 10px;">兵种树</a> <a href="/tags/%E5%8C%97%E6%B5%B7/" style="font-size: 10px;">北海</a> <a href="/tags/%E5%A4%96%E6%BB%A9/" style="font-size: 10px;">外滩</a> <a href="/tags/%E5%B9%BF%E4%B8%9C/" style="font-size: 10px;">广东</a> <a href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" style="font-size: 10px;">御温泉</a> <a href="/tags/%E6%9D%AD%E5%B7%9E/" style="font-size: 10px;">杭州</a> <a href="/tags/%E6%9F%B3%E5%B7%9E/" style="font-size: 12.5px;">柳州</a> <a href="/tags/%E6%B5%B7%E5%8D%97/" style="font-size: 10px;">海南</a> <a href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" style="font-size: 10px;">涠洲岛</a> <a href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" style="font-size: 10px;">湖光岩</a> <a href="/tags/%E6%B9%9B%E6%B1%9F/" style="font-size: 12.5px;">湛江</a> <a href="/tags/%E7%8F%A0%E6%B5%B7/" style="font-size: 10px;">珠海</a> <a href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" style="font-size: 10px;">菲律宾</a> <a href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" style="font-size: 10px;">薄荷岛</a> <a href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" style="font-size: 12.5px;">螺蛳粉</a> <a href="/tags/%E8%A5%BF%E6%B9%96/" style="font-size: 10px;">西湖</a> <a href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" style="font-size: 10px;">金沙湾</a> <a href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" style="font-size: 12.5px;">骑马与砍杀</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/">2022.10.05 柳州二游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/14/Tourism-Of-LiuZhou-2021-12-03/">2021.12.03 柳州旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2021/">2021.10.6-10.7 湛江旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/09/Tourism-Of-Zhuhai-21-Nov-2020/">2020.11.21 珠海御温泉</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/14/Tourism-Of-Sanya-Aug-2020/">2020.7.31-8.4 三亚自由行</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Anderson Feng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

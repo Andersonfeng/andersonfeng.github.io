@@ -1,35 +1,301 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
+  
+  <title>第一次发布jar包到Maven中央仓库 | Anderson&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第一次发布jar包到Maven中央仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一次发布jar包到Maven中央仓库">
+<meta property="og:url" content="https://andersonfeng.github.io/2018/09/03/First-Time-Release-Jar-To-Maven-Repository/index.html">
+<meta property="og:site_name" content="Anderson&#39;s blog">
+<meta property="og:description" content="第一次发布jar包到Maven中央仓库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://andersonfeng.github.io/images/First-Time-Release-Jar-To-Maven-Repository/create_issue.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/First-Time-Release-Jar-To-Maven-Repository/issue_first_response.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/First-Time-Release-Jar-To-Maven-Repository/release_jar.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/First-Time-Release-Jar-To-Maven-Repository/answer_issue.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/First-Time-Release-Jar-To-Maven-Repository/issue_response.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/First-Time-Release-Jar-To-Maven-Repository/%E5%B7%B2%E5%8F%91%E5%B8%83%E5%88%B0maven%E4%BB%93%E5%BA%93.png">
+<meta property="article:published_time" content="2018-09-03T03:18:28.000Z">
+<meta property="article:modified_time" content="2020-04-06T04:54:39.000Z">
+<meta property="article:author" content="Anderson Feng">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://andersonfeng.github.io/images/First-Time-Release-Jar-To-Maven-Repository/create_issue.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Anderson&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-{% block page_class %}page-post-detail{% endblock %}
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Anderson&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://andersonfeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-First-Time-Release-Jar-To-Maven-Repository" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/03/First-Time-Release-Jar-To-Maven-Repository/" class="article-date">
+  <time datetime="2018-09-03T03:18:28.000Z" itemprop="datePublished">2018-09-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第一次发布jar包到Maven中央仓库
+    </h1>
+  
 
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote class="blockquote-center"><p>第一次发布jar包到Maven中央仓库</p>
+</blockquote>
+<span id="more"></span>
+<p>在网上找了不少资料<br>总体流程如下:</p>
+<ol>
+<li>到<a href="https://issues.sonatype.org/secure/Dashboard.jspa" title="sonatype">sonatype</a> 申请账号并创建issue</li>
+<li>安装<a href="https://www.gpg4win.org/download.html" title="gpg">gpg</a>秘钥管理工具,用于生成秘钥并发布</li>
+<li>Maven配置pom.xml及setting.xml并发布</li>
+<li>发布后到<a href="https://oss.sonatype.org/" title="Nexus">Nexus</a>操作jar</li>
+<li>等待</li>
+</ol>
+<h3 id="申请账号并创建issue"><a href="#申请账号并创建issue" class="headerlink" title="申请账号并创建issue"></a>申请账号并创建issue</h3><ul>
+<li>申请账号略</li>
+<li>创建issue<ul>
+<li><img src="/images/First-Time-Release-Jar-To-Maven-Repository/create_issue.png" class="" title="create issue"></li>
+</ul>
+</li>
+<li>等待工作人员处理issue,并回复<ul>
+<li><img src="/images/First-Time-Release-Jar-To-Maven-Repository/issue_first_response.png" class="" title="issue first response"></li>
+</ul>
+</li>
+</ul>
+<h3 id="安装gpg-生成秘钥并发布"><a href="#安装gpg-生成秘钥并发布" class="headerlink" title="安装gpg,生成秘钥并发布"></a>安装gpg,生成秘钥并发布</h3><ul>
+<li>安装过程略(这里使用的是windows版)</li>
+<li>生成秘钥<ul>
+<li><code>gpg --gen-key</code> 根据提示输入真实姓名,邮箱,并输入两次<strong>密码</strong>,这里生成的<strong>密码</strong> 用于后面的发布</li>
+</ul>
+</li>
+<li>生成秘钥后可用<code>gpg --list-keys</code>查看本地秘钥,一长串的字母就是公钥ID</li>
+<li>将公钥发布到秘钥服务器<ul>
+<li>发布到那个服务器不唯一,在网上查到的资料是用以下服务器,如果没发布公钥到服务器上,发布jar会报错找不到公钥ID,并提示发布到哪些服务器上</li>
+<li><code>gpg --keyserver hkp://keyserver.ubuntu.com:11371 --send-keys 公钥ID</code>    </li>
+<li><code>gpg --keyserver hkp://keyserver.ubuntu.com:11371 --recv-keys 公钥ID</code> 查询公钥是否发布成功</li>
+</ul>
+</li>
+</ul>
+<h3 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h3><ul>
+<li>pom.xml配置包括<code>name</code>,<code>description</code>,<code>url</code>,<code>licenses</code>,<code>developers</code>,<code>scm</code>等  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.sonatype.oss<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>oss-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.github.andersonfeng<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>com.github.andersonfeng.mybatis-generator-plugins<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">licenses</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">license</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>The Apache Software License, Version 2.0<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://www.apache.org/licenses/LICENSE-2.0.txt<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">distribution</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">distribution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">license</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">licenses</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scm</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://github.com/Andersonfeng/mybatis-generator-plugins<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">connection</span>&gt;</span>https://github.com/Andersonfeng/mybatis-generator-plugins.git<span class="tag">&lt;/<span class="name">connection</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">developerConnection</span>&gt;</span>https://github.com/Andersonfeng<span class="tag">&lt;/<span class="name">developerConnection</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">scm</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">developers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">developer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>andersonfeng<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">email</span>&gt;</span>262643608@qq.com<span class="tag">&lt;/<span class="name">email</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://andersonfeng.github.io/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">developer</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">developers</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.generator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-generator-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-lang3<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.sonatype.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>nexus-staging-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">extensions</span>&gt;</span>true<span class="tag">&lt;/<span class="name">extensions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">serverId</span>&gt;</span>sonatype-nexus-staging<span class="tag">&lt;/<span class="name">serverId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">nexusUrl</span>&gt;</span>https://oss.sonatype.org/<span class="tag">&lt;/<span class="name">nexusUrl</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">autoReleaseAfterClose</span>&gt;</span>true<span class="tag">&lt;/<span class="name">autoReleaseAfterClose</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>disable-javadoc-doclint<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">jdk</span>&gt;</span>[1.8,)<span class="tag">&lt;/<span class="name">jdk</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- java8版本导致javadoc打包编译失败时候，添加--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">javadoc.opts</span>&gt;</span>-Xdoclint:none<span class="tag">&lt;/<span class="name">javadoc.opts</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>release<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.sonatype.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>nexus-staging-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.6.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">extensions</span>&gt;</span>true<span class="tag">&lt;/<span class="name">extensions</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">serverId</span>&gt;</span>sonatype-nexus-staging<span class="tag">&lt;/<span class="name">serverId</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">nexusUrl</span>&gt;</span>https://oss.sonatype.org/<span class="tag">&lt;/<span class="name">nexusUrl</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">autoReleaseAfterClose</span>&gt;</span>true<span class="tag">&lt;/<span class="name">autoReleaseAfterClose</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-release-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">autoVersionSubmodules</span>&gt;</span>true<span class="tag">&lt;/<span class="name">autoVersionSubmodules</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">useReleaseProfile</span>&gt;</span>false<span class="tag">&lt;/<span class="name">useReleaseProfile</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">releaseProfiles</span>&gt;</span>release<span class="tag">&lt;/<span class="name">releaseProfiles</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">goals</span>&gt;</span>deploy<span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-gpg-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">id</span>&gt;</span>sign-artifacts<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>verify<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>sign<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-source-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">id</span>&gt;</span>attach-sources<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>jar-no-fork<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-javadoc-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.10.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">id</span>&gt;</span>attach-javadocs<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">goal</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                                <span class="comment">&lt;!-- java8版本导致javadoc打包编译失败时候，添加--&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                                    <span class="tag">&lt;<span class="name">additionalparam</span>&gt;</span>$&#123;javadoc.opts&#125;<span class="tag">&lt;/<span class="name">additionalparam</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><h2 id="setting-xml配置"><a href="#setting-xml配置" class="headerlink" title="setting.xml配置"></a>setting.xml配置</h2>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>sonatype-nexus-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">username</span>&gt;</span>sonatype注册的账号<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password</span>&gt;</span>sonatype注册的账号的密码<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>sonatype-nexus-staging<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">username</span>&gt;</span>sonatype注册的账号<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password</span>&gt;</span>sonatype注册的账号的密码<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>发布<ul>
+<li><code>mvn clean install deploy -P release -Dgpg.passphrase=生成秘钥时候的密码</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="操作Nexus"><a href="#操作Nexus" class="headerlink" title="操作Nexus"></a>操作Nexus</h3><ul>
+<li>进入<a href="https://oss.sonatype.org/" title="Nexus">Nexus</a>的Build Promotion-Staging Repositories</li>
+<li>根据groupId搜获刚刚的构建</li>
+<li>选择构建并点击close</li>
+<li>等待几分钟构建的状态变为close后点击release<img src="/images/First-Time-Release-Jar-To-Maven-Repository/release_jar.png" class="" title="release jar"></li>
+<li>回复issue(大概让工作人员知道你已经操作成功了,不知道是否必要,不过出于礼貌也应该告知一下)<img src="/images/First-Time-Release-Jar-To-Maven-Repository/answer_issue.png" class="" title="answer issue"></li>
+<li>随后工作人员会给答复<img src="/images/First-Time-Release-Jar-To-Maven-Repository/issue_response.png" class="" title="issue response"></li>
+</ul>
+<h3 id="等待"><a href="#等待" class="headerlink" title="等待"></a>等待</h3><ul>
+<li>第二天发现项目已经发布到maven中央仓库了<br><img src="/images/First-Time-Release-Jar-To-Maven-Repository/%E5%B7%B2%E5%8F%91%E5%B8%83%E5%88%B0maven%E4%BB%93%E5%BA%93.png" alt="已发布到maven仓库" title="已发布到maven仓库"></li>
+</ul>
 
-{% block content %}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://andersonfeng.github.io/2018/09/03/First-Time-Release-Jar-To-Maven-Repository/" data-id="cl90v4vpj0009y2wvfzjc3a99" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/09/12/About-Spring-Boot-2.0.4.RELEASE-Upgrade-To-Spring-Boot-2.1.0.M2-Encountered-Mysql-TimeZone-Problem/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于Spring Boot 2.0.4.RELEASE 升级 Spring Boot 2.1.0.M2遇到的Mysql时区问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/27/Daily-Singleton-Serialization/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">单例与序列化日常</div>
+    </a>
+  
+</nav>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  
+</article>
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">编程</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alona-Beach/" rel="tag">Alona Beach</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bohol/" rel="tag">Bohol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game/" rel="tag">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KCP/" rel="tag">KCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/L2TP/" rel="tag">L2TP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/" rel="tag">Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Logback/" rel="tag">Logback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/" rel="tag">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPC/" rel="tag">NPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Origin/" rel="tag">Origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Philippines/" rel="tag">Philippines</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RedisTemplate/" rel="tag">RedisTemplate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/" rel="tag">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks/" rel="tag">Shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Singleton/" rel="tag">Singleton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slf4j/" rel="tag">Slf4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SoftEther/" rel="tag">SoftEther</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP2RAW/" rel="tag">UDP2RAW</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Youtube/" rel="tag">Youtube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E4%BA%9A/" rel="tag">三亚</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E6%B5%B7/" rel="tag">上海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" rel="tag">东海岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" rel="tag">兵种树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E6%B5%B7/" rel="tag">北海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E6%BB%A9/" rel="tag">外滩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E4%B8%9C/" rel="tag">广东</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" rel="tag">御温泉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%AD%E5%B7%9E/" rel="tag">杭州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%B3%E5%B7%9E/" rel="tag">柳州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%B7%E5%8D%97/" rel="tag">海南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" rel="tag">涠洲岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" rel="tag">湖光岩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%9B%E6%B1%9F/" rel="tag">湛江</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8F%A0%E6%B5%B7/" rel="tag">珠海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" rel="tag">菲律宾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" rel="tag">薄荷岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" rel="tag">螺蛳粉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E6%B9%96/" rel="tag">西湖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" rel="tag">金沙湾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" rel="tag">骑马与砍杀</a></li></ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Alona-Beach/" style="font-size: 10px;">Alona Beach</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Bohol/" style="font-size: 10px;">Bohol</a> <a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Game/" style="font-size: 17.5px;">Game</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/KCP/" style="font-size: 10px;">KCP</a> <a href="/tags/L2TP/" style="font-size: 10px;">L2TP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/Logback/" style="font-size: 10px;">Logback</a> <a href="/tags/MongoDb/" style="font-size: 10px;">MongoDb</a> <a href="/tags/Mysql/" style="font-size: 12.5px;">Mysql</a> <a href="/tags/NPC/" style="font-size: 10px;">NPC</a> <a href="/tags/Origin/" style="font-size: 10px;">Origin</a> <a href="/tags/Philippines/" style="font-size: 10px;">Philippines</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/RedisTemplate/" style="font-size: 10px;">RedisTemplate</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Slf4j/" style="font-size: 10px;">Slf4j</a> <a href="/tags/SoftEther/" style="font-size: 10px;">SoftEther</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 17.5px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/UDP2RAW/" style="font-size: 10px;">UDP2RAW</a> <a href="/tags/Unity/" style="font-size: 15px;">Unity</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/WebSocket/" style="font-size: 10px;">WebSocket</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Youtube/" style="font-size: 10px;">Youtube</a> <a href="/tags/%E4%B8%89%E4%BA%9A/" style="font-size: 10px;">三亚</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 10px;">上海</a> <a href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" style="font-size: 10px;">东海岛</a> <a href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" style="font-size: 10px;">兵种树</a> <a href="/tags/%E5%8C%97%E6%B5%B7/" style="font-size: 10px;">北海</a> <a href="/tags/%E5%A4%96%E6%BB%A9/" style="font-size: 10px;">外滩</a> <a href="/tags/%E5%B9%BF%E4%B8%9C/" style="font-size: 10px;">广东</a> <a href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" style="font-size: 10px;">御温泉</a> <a href="/tags/%E6%9D%AD%E5%B7%9E/" style="font-size: 10px;">杭州</a> <a href="/tags/%E6%9F%B3%E5%B7%9E/" style="font-size: 12.5px;">柳州</a> <a href="/tags/%E6%B5%B7%E5%8D%97/" style="font-size: 10px;">海南</a> <a href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" style="font-size: 10px;">涠洲岛</a> <a href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" style="font-size: 10px;">湖光岩</a> <a href="/tags/%E6%B9%9B%E6%B1%9F/" style="font-size: 12.5px;">湛江</a> <a href="/tags/%E7%8F%A0%E6%B5%B7/" style="font-size: 10px;">珠海</a> <a href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" style="font-size: 10px;">菲律宾</a> <a href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" style="font-size: 10px;">薄荷岛</a> <a href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" style="font-size: 12.5px;">螺蛳粉</a> <a href="/tags/%E8%A5%BF%E6%B9%96/" style="font-size: 10px;">西湖</a> <a href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" style="font-size: 10px;">金沙湾</a> <a href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" style="font-size: 12.5px;">骑马与砍杀</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/">2022.10.05 柳州二游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/14/Tourism-Of-LiuZhou-2021-12-03/">2021.12.03 柳州旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2021/">2021.10.6-10.7 湛江旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/09/Tourism-Of-Zhuhai-21-Nov-2020/">2020.11.21 珠海御温泉</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/14/Tourism-Of-Sanya-Aug-2020/">2020.7.31-8.4 三亚自由行</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Anderson Feng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

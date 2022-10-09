@@ -1,35 +1,541 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
 
+  
+  <title>2018.12.29-2019.01.02 菲律宾旅游 | Anderson&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="元旦3天假,调休1天四天假,粗略一下菲律宾薄荷岛游记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018.12.29-2019.01.02 菲律宾旅游">
+<meta property="og:url" content="https://andersonfeng.github.io/2019/01/03/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/index.html">
+<meta property="og:site_name" content="Anderson&#39;s blog">
+<meta property="og:description" content="元旦3天假,调休1天四天假,粗略一下菲律宾薄荷岛游记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%B9%BF%E5%B7%9E-%E8%8F%B2%E5%BE%8B%E5%AE%BE%E5%BE%80%E8%BF%94%E6%9C%BA%E7%A5%A8.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%B9%BF%E5%B7%9E-%E8%8F%B2%E5%BE%8B%E5%AE%BE%E5%BE%80%E8%BF%94%E6%9C%BA%E7%A5%A8%E4%BB%B7%E6%A0%BC.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E7%BE%8E%E4%BA%9A%E4%BF%9D%E9%99%A9.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%AE%89%E8%81%94%E4%BF%9D%E9%99%A9.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%B9%B3%E5%AE%89%E4%BF%9D%E9%99%A9.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Tag-Panglao.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/MNL-TAG.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/TAG-MNL.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E7%99%BD%E4%BA%91%E6%9C%BA%E5%9C%BA%E9%A3%9E%E6%9C%BA%E5%BB%B6%E8%AF%AF.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E9%A3%9E%E6%9C%BA%E5%88%B0%E8%BE%BE.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%85%A5%E5%A2%83%E7%99%BB%E8%AE%B0%E5%8D%A1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Panglao-International-Airport%E5%88%B0Villa-Almedilla.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Villa-Almedilla-1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Villa-Almedilla-2.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Villa-Almedilla-3.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Villa-Almedilla-4.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/sea-urchin.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-2.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-3.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%88%87%E5%A5%BD%E7%9A%84%E8%8A%92%E6%9E%9C.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%AE%B5%E5%A4%9C%E7%82%B8%E8%99%BE.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%AE%B5%E5%A4%9C%E7%83%A4%E9%B1%BC.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%AE%B5%E5%A4%9C%E6%8B%BC%E7%9B%98.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/SEA-SHINE.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/John-Michael.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E9%99%86%E5%9C%B0%E6%B8%B8%E8%A1%8C%E7%A8%8B.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-4.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E9%9D%A2%E5%8C%85%E8%BD%A6.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Chocolate-Hill-1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Chocolate-Hill-2.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Chocolate-Hill-3.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Chocolate-Hill-4.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E7%9C%BC%E9%95%9C%E7%8C%B4.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E4%BA%BA%E9%80%A0%E6%9E%97.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E7%AB%B9%E5%90%8A%E6%A1%A5.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/LOBOC-RIVER-CRUISE-AND-LUNCH-1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/LOBOC-RIVER-CRUISE-AND-LUNCH-2.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/LOBOC-RIVER-CRUISE-AND-LUNCH-3.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/LOBOC-RIVER-CRUISE-AND-LUNCH-4.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/BUTTERFLY-GARDEN-1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/BUTTERFLY-GARDEN-2.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/BUTTERFLY-GARDEN-3.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/BUTTERFLY-GARDEN-4.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E6%95%99%E5%A0%82.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Belian-Hotel.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E8%B7%B3%E5%B2%9B%E6%B8%B8%E8%A1%8C%E7%A8%8B.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-5.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-6.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Balicasag-1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Balicasag-2.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E8%A2%AB%E5%B2%A9%E7%9F%B3%E5%88%AE%E4%BC%A4.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E6%80%A7%E9%AA%9A%E6%89%B0.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/dive-1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/dive-2.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/dive-3.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E7%91%9E%E5%A3%AB%E5%A4%AB%E5%A6%BB.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Virgin-Island-1.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Virgin-Island-2.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Virgin-Island-3.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E7%9C%BC%E9%95%9C%E7%8C%B4%E9%A4%90%E5%8E%85.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-7.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-8.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-9.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E8%87%AA%E5%8A%A9%E6%97%A9%E9%A4%90.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/0775.png">
+<meta property="article:published_time" content="2019-01-03T08:16:47.000Z">
+<meta property="article:modified_time" content="2020-04-06T04:54:39.000Z">
+<meta property="article:author" content="Anderson Feng">
+<meta property="article:tag" content="菲律宾">
+<meta property="article:tag" content="薄荷岛">
+<meta property="article:tag" content="Philippines">
+<meta property="article:tag" content="Alona Beach">
+<meta property="article:tag" content="Bohol">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://andersonfeng.github.io/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%B9%BF%E5%B7%9E-%E8%8F%B2%E5%BE%8B%E5%AE%BE%E5%BE%80%E8%BF%94%E6%9C%BA%E7%A5%A8.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Anderson&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-{% block page_class %}page-post-detail{% endblock %}
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Anderson&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://andersonfeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/03/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/" class="article-date">
+  <time datetime="2019-01-03T08:16:47.000Z" itemprop="datePublished">2019-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a>
+  </div>
 
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2018.12.29-2019.01.02 菲律宾旅游
+    </h1>
+  
 
-{% block content %}
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote class="blockquote-center"><p>元旦3天假,调休1天四天假,粗略一下菲律宾薄荷岛游记</p>
+</blockquote>
+<span id="more"></span>
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+<h2 id="出发之前"><a href="#出发之前" class="headerlink" title="出发之前"></a>出发之前</h2><h3 id="机票"><a href="#机票" class="headerlink" title="机票"></a>机票</h3><ul>
+<li>我们10月份看元旦广州-薄荷岛机票,人均3776(包含飞机餐,燃油,座位预定,保险),如果是淡季,往返机票便宜些的在1000以内  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%B9%BF%E5%B7%9E-%E8%8F%B2%E5%BE%8B%E5%AE%BE%E5%BE%80%E8%BF%94%E6%9C%BA%E7%A5%A8.png" class="" title="广州-菲律宾往返机票"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%B9%BF%E5%B7%9E-%E8%8F%B2%E5%BE%8B%E5%AE%BE%E5%BE%80%E8%BF%94%E6%9C%BA%E7%A5%A8%E4%BB%B7%E6%A0%BC.png" class="" title="广州-菲律宾往返机票价格"></div></div></div></div></li>
+</ul>
+<h3 id="签证"><a href="#签证" class="headerlink" title="签证"></a>签证</h3><ul>
+<li>我们是在淘宝上找的菲律宾签证,将passport和照片发给卖家,卖家帮我们搞签证,人均220左右</li>
+</ul>
+<h3 id="保险"><a href="#保险" class="headerlink" title="保险"></a>保险</h3><ul>
+<li>机票上包含保险,我们同时也在淘宝上查看3个热门保险,最终选择了了美亚保险延误3h的方案  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E7%BE%8E%E4%BA%9A%E4%BF%9D%E9%99%A9.png" class="" title="美亚保险"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%AE%89%E8%81%94%E4%BF%9D%E9%99%A9.png" class="" title="安联保险"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%B9%B3%E5%AE%89%E4%BF%9D%E9%99%A9.png" class="" title="平安保险"></div></div></div></div></li>
+</ul>
+<h3 id="手机卡"><a href="#手机卡" class="headerlink" title="手机卡"></a>手机卡</h3><ul>
+<li>我们使用的都是联通腾讯大王卡套餐,担心到国外收不到短信验证,咨询过后知道开通漫游是免费的,接收短信也是免费的</li>
+<li>网上和当地人都建议使用globe,这是菲律宾的运营商</li>
+<li>可以到菲律宾机场或者菲律宾小店购买手机卡,40p一张,然后可以通过微信公众号等方式充值话费,之后发送相应套餐代码到8080开通套餐</li>
+</ul>
+<h3 id="水下相机"><a href="#水下相机" class="headerlink" title="水下相机"></a>水下相机</h3><ul>
+<li>室友在淘宝上租赁了一个比较便宜的水下相机,押金几千,租金160</li>
+</ul>
+<h3 id="订酒店"><a href="#订酒店" class="headerlink" title="订酒店"></a>订酒店</h3><ul>
+<li>我们是在Booking这个APP上找的民宿,当初想着离海滩近又便宜些就行,不过体验了之后还是建议要么找沙滩附近好的酒店,要么在塔比拉兰市找个好酒店然后租一个taxi来回沙滩和酒店</li>
+</ul>
+<h3 id="货币兑换"><a href="#货币兑换" class="headerlink" title="货币兑换"></a>货币兑换</h3><h4 id="美金兑换"><a href="#美金兑换" class="headerlink" title="美金兑换"></a>美金兑换</h4><ul>
+<li>在网上查到在国内购买美金,然后在菲律宾兑换成比索是损失最少的,事实证明确实如此<ul>
+<li>室友680元购买了100美金,后来换了5150比索,(约1元兑换7.57p)</li>
+</ul>
+</li>
+</ul>
+<h4 id="支持银联ATM取款"><a href="#支持银联ATM取款" class="headerlink" title="支持银联ATM取款"></a>支持银联ATM取款</h4><ul>
+<li>除了美金外还有一种更方便的方法,就是使用银联卡直接在菲律宾支持银联(union pay)的ATM取款,汇率是按银联汇率算,不过每笔最多取10000比索,取款会有(200-250)当地银行收取的手续费<ul>
+<li>我们使用的是桂林银行卡,每年有8次境外免费取款</li>
+<li>1348元取了10000比索(包含250p手续费 约1元兑换7.41p)</li>
+</ul>
+</li>
+</ul>
+<h3 id="航空公司通知我们机场改变"><a href="#航空公司通知我们机场改变" class="headerlink" title="航空公司通知我们机场改变"></a>航空公司通知我们机场改变</h3><ul>
+<li>航空公司给我们发了邮件,2018.11.28开始,邦劳国际机场开始运营,原本我们从马尼拉-塔比拉兰的往返改为马尼拉-邦劳往返  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Tag-Panglao.png" title="Tag机场换到Panglao机场" width="60%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/MNL-TAG.png" title="MNL-TAG"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/TAG-MNL.png" title="TAG-MNL"></div></div></div></div></li>
+</ul>
+<h2 id="出行-Day-1"><a href="#出行-Day-1" class="headerlink" title="出行 Day 1"></a>出行 Day 1</h2><h3 id="广州"><a href="#广州" class="headerlink" title="广州"></a>广州</h3><ul>
+<li>机票上的起飞时间是02:05,在网上很多建议是国际航班最好提前3小时到机场</li>
+<li>于是我们22点就出门坐地铁,不到23点半我们就到了机场也换好了机票</li>
+<li>不知什么原因飞机晚点约2小时,机场里面提供有充电插座,我们准备好的三脚架和下载好的电影就派上用场了  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/白云机场飞机延误.png" title="白云机场飞机延误" width="80%">    </li>
+<li>电影差不多看完飞机也刚好到了,又冷又困又饿的我们在旁边的咖啡店购买了三文治稍微填填肚子  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/飞机到达.png" title="飞机到达" width="80%"></li>
+</ul>
+<h3 id="5J289-广州-马尼拉"><a href="#5J289-广州-马尼拉" class="headerlink" title="5J289 广州-马尼拉"></a>5J289 广州-马尼拉</h3><ul>
+<li>之前没注意看机票上提供了飞机餐,感觉整架飞机就我们3个有飞机餐(牛肉饭)</li>
+<li>飞机上比广州暖和很多,当时广州刚好来了冷空气,室温不到10度</li>
+<li>飞机上的饮料是收费的,不过白开水免费</li>
+<li>我们收到了一张入境登记卡,这个时候发现我们漏带了一样东西,笔!  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/入境登记卡.png" title="入境登记卡" width="60%">        </li>
+<li>出国的小伙伴记得一定要带一支笔</li>
+</ul>
+<h3 id="马尼拉"><a href="#马尼拉" class="headerlink" title="马尼拉"></a>马尼拉</h3><ul>
+<li>12.30 6:30我们到达了马尼拉,离下一趟机的时间08:15只有不到2小时,时间非常少</li>
+<li>进到机场,发现很多人在排队,这个时候没带笔的缺点就被放大了,我们必须排队等前面填表的人填完才能借到笔填表</li>
+<li>我室友从工作人员那咨询到,我们必须先填表,然后排队入境,才能转机</li>
+<li>填完表就排队,可时间越来越少我们很担心赶不上飞机,这时候入境窗口多了一个,我和那开窗口的大叔确认了一下眼神马上带着朋友往新窗口跑,越过了二十多人</li>
+<li>等我们入境后一路狂奔赶到check-in台,已经是7:50,我问工作人员我们的飞机快赶不上了,能否让我们插个队(cut in line),那小姐姐告诉我飞机大概晚点了15分钟就是8:30,我们应该还能赶上</li>
+<li>后来在艰难地理解着小姐姐的菲律宾口音,我们顺利拿到机票并乘上飞往薄荷岛的飞机</li>
+</ul>
+<h3 id="薄荷岛"><a href="#薄荷岛" class="headerlink" title="薄荷岛"></a>薄荷岛</h3><ul>
+<li>原本我们计划是在马尼拉机场ATM领取现金或者用准备好的美金兑换比索的,可2小时的延误打乱了我们的行程,所以现在身上没有任何现金</li>
+<li>不过我们遇到了一个叫做Abet的司机,他说可以带我们去Alona Beach,顺道可以让我们取款和兑换货币,这一趟收取了我们300p,我们也按当地习俗给了tips 20p  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Panglao-International-Airport到Villa-Almedilla.png" title="Panglao International Airport到Villa Almedilla" width="60%"></li>
+<li>这个民宿就比较一般,2395P一晚,进了房间发现比照片上面要好不少,虽然还是比较破  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Villa-Almedilla-1.png" title="Villa Almedilla" width="60%"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Villa-Almedilla-2.png" class="" title="Villa Almedilla"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Villa-Almedilla-3.png" class="" title="Villa Almedilla"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Villa-Almedilla-4.png" class="" title="Villa Almedilla"></div></div></div></div></li>
+<li>因为这几天都有下雨,所以海水并没有平常干净  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-1.png" title="Alona Beach" width="60%"></li>
+</ul>
+<h4 id="购买日用品"><a href="#购买日用品" class="headerlink" title="购买日用品"></a>购买日用品</h4><ul>
+<li>奔波一晚一天比较疲倦了,不过我们还需要购买一些日用品,洗发液,沐浴露,防晒霜,拖鞋,手机卡等</li>
+<li>原本以为小店会便宜些,可事实证明还是7-11价格比较正常,我们被小店坑了约几十元人民币</li>
+</ul>
+<h4 id="吃午餐"><a href="#吃午餐" class="headerlink" title="吃午餐"></a>吃午餐</h4><ul>
+<li>果汁挺便宜,1杯芒果冰沙100p,味道还不错</li>
+<li>第一顿原本想吃点好的,可是到处看都觉得太贵,没有理由菲律宾的海鲜比国内还贵,于是我们在一个小巷子吃了炒饭和烧鸡,550p,没拍照</li>
+</ul>
+<h4 id="游泳"><a href="#游泳" class="headerlink" title="游泳"></a>游泳</h4><ul>
+<li><p>回旅馆休息了2小时就出去游泳</p>
+</li>
+<li><p>海水很咸,最好带上泳镜不然不太睁得开眼镜</p>
+</li>
+<li><p>而且事实证明不知水况的地方不要下水,我们两个男孩都被水底的东西扎到而且挺疼的</p>
+</li>
+<li><p>向岸上的老板娘求助她让她女儿拿一瓶醋帮我们泡脚,后来得知那是海胆(sea urchin)</p>
+  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/sea-urchin.png" title="海胆Sea Urchin" width="40%">
+</li>
+<li><p>后来当地人告诉我们用女生的尿泡海胆刺会好得很快,可我们实验过觉得还是醋比较好使…</p>
+</li>
+</ul>
+<h4 id="宵夜"><a href="#宵夜" class="headerlink" title="宵夜"></a>宵夜</h4><ul>
+<li>休息了一会我们就出去逛逛晚上的Alona Beach,晚上比白天热闹,很多foreigner在酒吧拿着啤酒谈笑风生,此时我们也是foreigner  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-2.png" class="" title="晚上AlonaBeach"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-3.png" class="" title="晚上AlonaBeach"></div></div></div></div></li>
+<li>看到楼下有卖切好的芒果,我们吃完去买了一个,还不错,100P  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/切好的芒果.png" title="切好的芒果" width="40%">
+  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%AE%B5%E5%A4%9C%E7%82%B8%E8%99%BE.png" class="" title="炸虾"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E5%AE%B5%E5%A4%9C%E7%83%A4%E9%B1%BC.png" class="" title="烤鱼"></div></div></div></div></li>
+<li>不过这两碟不够我们3人吃,又找了一家烧烤店,之前湛江旅游的经历告诉我们烧烤店去烟大的地方一般不会错,但是这烟大的地方都没位置了,我们另外找了一家带蜡烛的,面相不错,可味道真的很一般,2000P  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/宵夜拼盘.png" title="宵夜拼盘" width="40%"></li>
+</ul>
+<h4 id="订旅行社"><a href="#订旅行社" class="headerlink" title="订旅行社"></a>订旅行社</h4><ul>
+<li><p>之前室友在网上看过有推荐的旅行社,不过我们找了两遍没找到,于是随意进了一家</p>
+  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/SEA-SHINE.png" title="SEA SHINE" width="40%">    
+      </li>
+<li><p>由于今天看到水质还不太好,所以我们决定先订一个陆地游</p>
+</li>
+<li><p>当时是由一个叫做John Michael的中介给我们介绍的陆地游,总体还行,3人租车共1200p,押金200p,景点的门票是另外给的</p>
+  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/John-Michael.png" class="" title="John Michael"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E9%99%86%E5%9C%B0%E6%B8%B8%E8%A1%8C%E7%A8%8B.png" class="" title="陆地游行程"></div></div></div></div></li>
+</ul>
+<h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><h3 id="陆地游"><a href="#陆地游" class="headerlink" title="陆地游"></a>陆地游</h3><ul>
+<li>我们约定的时间是9点在旅行社集合</li>
+<li>今天的水质看起来比昨天好多了  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-4.png" title="Alona Beach" width="80%"></li>
+<li>我们租的是一辆面包车,车上大概10个人  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/面包车.png" title="面包车" width="80%"></li>
+</ul>
+<h4 id="巧克力山-CHOCOLATE-HILLS"><a href="#巧克力山-CHOCOLATE-HILLS" class="headerlink" title="巧克力山(CHOCOLATE HILLS)"></a>巧克力山(CHOCOLATE HILLS)</h4><ul>
+<li>不要担心看了照片觉得剧透了,在山上感觉真的很舒服,吹来的风也是香香的  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 100%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Chocolate-Hill-1.png" class="" title="Chocolate Hills"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Chocolate-Hill-2.png" class="" title="Chocolate Hills"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Chocolate-Hill-3.png" class="" title="Chocolate Hills"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Chocolate-Hill-4.png" class="" title="Chocolate Hills"></div></div></div></div></li>
+</ul>
+<h4 id="眼镜猴-TARSIER-IN-LOBOC"><a href="#眼镜猴-TARSIER-IN-LOBOC" class="headerlink" title="眼镜猴(TARSIER IN LOBOC)"></a>眼镜猴(TARSIER IN LOBOC)</h4><ul>
+<li>眼镜猴很小,几乎不动,指示牌要求游客们安静而且禁止使用闪光灯  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E7%9C%BC%E9%95%9C%E7%8C%B4.png" class="" title="眼镜猴"></li>
+</ul>
+<h4 id="人造林-MAN-MADE-FOREST"><a href="#人造林-MAN-MADE-FOREST" class="headerlink" title="人造林(MAN MADE FOREST)"></a>人造林(MAN MADE FOREST)</h4><ul>
+<li>这里停一站没什么感觉,不过坐车有点晕了休息一下也好  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/%E4%BA%BA%E9%80%A0%E6%9E%97.png" class="" title="人造林"></li>
+</ul>
+<h4 id="竹吊桥-BAMBOO-HANGING-BRIDGE"><a href="#竹吊桥-BAMBOO-HANGING-BRIDGE" class="headerlink" title="竹吊桥(BAMBOO HANGING BRIDGE)"></a>竹吊桥(BAMBOO HANGING BRIDGE)</h4><ul>
+<li>就是摇摇晃晃,过去了有东西卖,再摇摇晃晃回来,人均35p  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/竹吊桥.png" title="竹吊桥"></li>
+</ul>
+<h4 id="空中飞人-ZIPLINE"><a href="#空中飞人-ZIPLINE" class="headerlink" title="空中飞人(ZIPLINE)"></a>空中飞人(ZIPLINE)</h4><ul>
+<li>有缆车和溜索400p&#x2F;人,室友去玩过说很刺激风景很美,为了保护小心脏我就坐在大厅玩三国杀</li>
+</ul>
+<h4 id="游艇自助餐-LOBOC-RIVER-CRUISE-AND-LUNCH"><a href="#游艇自助餐-LOBOC-RIVER-CRUISE-AND-LUNCH" class="headerlink" title="游艇自助餐(LOBOC RIVER CRUISE AND LUNCH)"></a>游艇自助餐(LOBOC RIVER CRUISE AND LUNCH)</h4><ul>
+<li>这是边游船边听歌边吃自助餐,总体挺舒服的  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/LOBOC-RIVER-CRUISE-AND-LUNCH-1.png" title="LOBOC RIVER CRUISE AND LUNCH"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/LOBOC-RIVER-CRUISE-AND-LUNCH-2.png" title="LOBOC RIVER CRUISE AND LUNCH"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/LOBOC-RIVER-CRUISE-AND-LUNCH-3.png" title="LOBOC RIVER CRUISE AND LUNCH"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/LOBOC-RIVER-CRUISE-AND-LUNCH-4.png" title="LOBOC RIVER CRUISE AND LUNCH"></div></div></div></div></li>
+</ul>
+<h4 id="蝴蝶谷-BUTTERFLY-GARDEN"><a href="#蝴蝶谷-BUTTERFLY-GARDEN" class="headerlink" title="蝴蝶谷(BUTTERFLY GARDEN)"></a>蝴蝶谷(BUTTERFLY GARDEN)</h4><ul>
+<li>这里有蝴蝶也有蛇  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/BUTTERFLY-GARDEN-1.png" title="BUTTERFLY GARDEN"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/BUTTERFLY-GARDEN-2.png" title="BUTTERFLY GARDEN"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/BUTTERFLY-GARDEN-3.png" title="BUTTERFLY GARDEN"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/BUTTERFLY-GARDEN-4.png" title="BUTTERFLY GARDEN"></div></div></div></div></li>
+</ul>
+<h4 id="教堂"><a href="#教堂" class="headerlink" title="教堂"></a>教堂</h4><ul>
+<li>一个破旧教堂  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/教堂.png" title="教堂"></li>
+</ul>
+<h3 id="麦当劳"><a href="#麦当劳" class="headerlink" title="麦当劳"></a>麦当劳</h3><ul>
+<li>旅途很快就结束了,我们一开始没有去开卡丁车所以省了不少时间</li>
+<li>陆地游同行者中与我们一同中途下车的有一对夫妻,妻子是当地人,帮我们截了一辆tutu三轮车送到塔比拉兰市的麦当劳,才60p,要是我们自己喊车估计要300p以上了</li>
+<li>第一次坐到tutu车原来前面可以放张椅子坐3个人的,不过很多车都没有</li>
+</ul>
+<h3 id="贝利尔酒店-Belian-Hotel"><a href="#贝利尔酒店-Belian-Hotel" class="headerlink" title="贝利尔酒店(Belian Hotel)"></a>贝利尔酒店(Belian Hotel)</h3><ul>
+<li>在booking上找了几家酒店,因为我们是3个人,不知道酒店是否能入住1张单人床(single bed)和1张双人床(double bed)的双人房(double room),所以不敢直接订得去到酒店确认</li>
+<li>沿途看了几家都不太合适,但是在快到我们网上找的酒店的路上碰到了这家一看就不错的酒店</li>
+<li>进去有很多空姐在办理入住,这才想起来之前在攻略上看到过这家酒店的介绍</li>
+<li>咨询过后我们3个人可以入住双人房,不过得加钱,共3200p&#x2F;晚带自助早餐,所以我们订了2晚  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Belian-Hotel.png" title="没留照片,不过门面就是这样的,早餐在左边吃自助餐" width="70%"></li>
+</ul>
+<h3 id="预定跳岛游"><a href="#预定跳岛游" class="headerlink" title="预定跳岛游"></a>预定跳岛游</h3><ul>
+<li>在酒店休息调整了一下我们便出去逛逛找找旅行社订下明天的行程</li>
+<li>我们发现塔比拉兰这个城市门店关得真是早,19点左右除了大商场基本全关了</li>
+<li>原本昨晚和找我们的John Michael已经咨询过,想找他再确认一下定下来的,可是他的微信没反应,打电话也一直断根本定不下来(后来知道他信号差,家里又没wifi)</li>
+<li>我们打算回到Alona Beach找旅行社,找了很久都没有taxi,只有坐tutu车过去300p</li>
+<li>还是找回了之前的旅行社,但这次给我们介绍的人是一个叫做Reynell  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/跳岛游行程.png" title="跳岛游行程" width="40%"></li>
+<li>必须6点到达Alona Beach,我们想预定一辆taxi,问了旅行社老板娘说没有车空出来帮不了我们,本来以为到机场会有很多taxi在等着,可是薄荷岛的机场目前晚上没有航班是关闭的,酒店前台告诉我们因为现在是新年,很多人可能会去参加派对所以比较难找车,后来还是酒店帮我们预定了taxi,价格比较贵700p</li>
+</ul>
+<h2 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h2><h3 id="跳岛游"><a href="#跳岛游" class="headerlink" title="跳岛游"></a>跳岛游</h3><h4 id="上船前"><a href="#上船前" class="headerlink" title="上船前"></a>上船前</h4><ul>
+<li>虽然酒店提供自助早餐,可时间是6:00-10:00,我们吃不上了,但酒店说可以为我们准备好三文治和咖啡在指定时间送到房间,这一点十分贴心,而且这个三文治是我在菲律宾吃到最好吃的早餐了</li>
+<li>司机将我们送到Alona Beach只收了500p并留下了电话,说回来时可以call他</li>
+<li>途中收到昨晚Reynell的短信说他为我们叫好了tutu车让我们付400p,因为他没有征得我们同意就自作主张为我们叫了tutu车这点导致大家有点不愉快,后来我说大家都有责任各付200p完事</li>
+<li>约定是6点,可实际7点也还没上船,碰到了John Michael告诉我们,一般他们说6点实际上是6:30  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-5.png" title="在等船"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-6.png" title="船到了"></div></div></div></div></li>
+</ul>
+<h4 id="船上"><a href="#船上" class="headerlink" title="船上"></a>船上</h4><ul>
+<li>同船的有船员(当地人叫boat man),有一对刚结婚的日本夫妻,有3个韩国妹子,和一对结婚8年的瑞士夫妻</li>
+<li>开船后马达非常吵,瑞士lady捂着耳朵大声问”Is is normal?”,船长比了个ok</li>
+<li>摇摇晃晃不知道绕了多久,只看到一次一群小海豚跳出水面,看来这次无缘看到大海豚了</li>
+</ul>
+<h4 id="巴里卡萨岛-Balicasag-Island"><a href="#巴里卡萨岛-Balicasag-Island" class="headerlink" title="巴里卡萨岛(Balicasag Island)"></a>巴里卡萨岛(Balicasag Island)</h4><div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Balicasag-1.png" title="巴里卡萨岛"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Balicasag-2.png" title="巴里卡萨岛"></div></div></div></div>
+<ul>
+<li>终于在昏昏沉沉中船靠了岸,船员和岛民给我们租了浮潜鞋,面镜和呼吸管,一人一个救生员,没仔细教怎么用也没说注意事项就让我们换衣服跳下了水,然后我没注意脚就被岩石刮伤了  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/被岩石刮伤.png" title="被岩石刮伤" width="40%"></li>
+<li>这次浮潜(Snorkeling)的体验很一般,本应该划个小船到远一点的地方再下水能看到的镜像就更清晰了,虽然能看到不少鱼,但面镜会进水,呼吸管也会吸入不少海水,呛了几次之后体力就有点不支了,室友的情况也不比我好多少,没多久我们便要求上了岸休息</li>
+<li>我gf的体验也很差,在水里还遭到船长性骚扰,但是在岛上我们也不敢轻举妄动,回岸上后报了警  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/性骚扰.jpg" title="性骚扰的船长,如果有网友看到这个家伙一定要注意保护好自己" width="20%"></li>
+<li>之后室友去体验了深潜(dive) 1500p,说下面很漂亮,我脚受伤了没敢去  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/dive-1.png" title="深潜"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/dive-2.png" title="深潜"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/dive-3.png" title="深潜"></div></div></div></div></li>
+<li>瑞士lady 深潜了8次,体力好而且有勇气而且有钱!</li>
+</ul>
+<h4 id="处女岛-Virgin-Island"><a href="#处女岛-Virgin-Island" class="headerlink" title="处女岛(Virgin Island)"></a>处女岛(Virgin Island)</h4><ul>
+<li>船快靠岸时暗礁不少,船行驶的速度减慢了许多还有船员坐在船头比划</li>
+<li>与同游的瑞士夫妻吹水聊天挺流畅的,聊了十来分钟我下载了个facebook想互加好友,后来不知道是没点到申请还是网络问题没记录了  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/瑞士夫妻.png" title="瑞士夫妻" width="50%"></li>
+<li>这个岛据说一天只有一段时间能出现  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Virgin-Island-1.png" title="Virgin Island"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Virgin-Island-2.png" title="Virgin Island"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Virgin-Island-3.png" title="Virgin Island"></div></div></div></div></li>
+</ul>
+<h3 id="报警"><a href="#报警" class="headerlink" title="报警"></a>报警</h3><ul>
+<li>回到岛上我们不敢直接取警局,因为我怕有关系勾结,盲目报警会让自己处于危险</li>
+<li>回到酒店休息一下便拨打了当地的报警电话,但是接电话的警员口音实在太重就大概听到他让我们到当地警局报案,于是跟前台小姐姐说明情况并求助,前台打了几个电话告诉我们塔比拉兰市(Tagbilaran City)的警察在邦劳市(Panglao City)没有执法权,必须自己前往邦劳的警察局报案</li>
+<li>确认了自己报案不会让自己受伤害后我们坐tutu车前往邦劳警察局,跟警官说明了情况,警官拿到了照片,并在内部微信群传阅,马上有人认出来船长是谁,让gf填了张表留下了记录,警官告诉我们第二天会将该人带回来问话,不能确保他会收到什么惩罚,不过如果以后再有人举报他估计会收到很严重的处罚.</li>
+<li>然后我们坐tutu车回到Alona Beach吃晚餐,途中车胎还爆了有惊无险</li>
+</ul>
+<h3 id="眼镜猴餐厅"><a href="#眼镜猴餐厅" class="headerlink" title="眼镜猴餐厅"></a>眼镜猴餐厅</h3><ul>
+<li><p>室友说眼镜猴餐厅评价也不错,于是我们过来试了下,的确ok,共1200p</p>
+  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/眼镜猴餐厅.png" title="眼镜猴餐厅" width="60%"></li>
+<li><p>元旦过后Alona Beach人明显少了些,不过也还挺热闹</p>
+  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-7.png" title="Alona Beach"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-8.png" title="Alona Beach"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/Alona-Beach-9.png" title="Alona Beach"></div></div></div></div>
+</li>
+<li><p>之后我们买了些水果回酒店边看《大帅哥》边吃水果</p>
+</li>
+<li><p>预约了第二天11点Abet(当初在机场搭我们到Alona Beach的driver)来接我们到机场</p>
+</li>
+</ul>
+<h2 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h2><h3 id="早餐"><a href="#早餐" class="headerlink" title="早餐"></a>早餐</h3><ul>
+<li>今天终于能吃到酒店的自助早餐,还有烤面包机,工作人员刚好走开gf就把面包烤焦了,后来工作人员回来准备烤面包时发现了烤焦的面包一脸嫌弃地问是不是我的,我回答’nonono’,然后gf匆匆跑来取走  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/自助早餐.png" title="酒店自助早餐" width="60%"></li>
+</ul>
+<h3 id="归途"><a href="#归途" class="headerlink" title="归途"></a>归途</h3><ul>
+<li>回房间看看《大帅哥》时间很快就到了,我们退房并不停地拨打Abet电话,这个Abet真像个隐藏任务,只有第一次下飞机时碰到了他,之后总计拨打了数十个电话就是找不到他</li>
+<li>我们只有在酒店门口喊了tutu车送我们到机场,可这导致了另一件不愉快的事情<ul>
+<li>下车的时候室友手机还没拿车就开走了,我们发现时tutu车已经开走2分钟,打电话也不接  <img src="/images/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/0775.png" title="0775号tutu车,照片室友的手机还在车里" width="60%"></li>
+<li>我们马上联系了旁边的警察,让他们跟附近的关卡取得联系,因为有车号,想着找到司机不难,警察叔叔马上就知道了车往塔比拉兰市开去了,但是tutu车总部告知该司机没有手机</li>
+<li>我们的飞机2小时后起飞,室友决定坐车回去追一下可能性比较大</li>
+<li>做了许多努力,最后并没有追回手机,我加了一个值机小姐姐的微信请求她帮忙</li>
+<li>第二天小姐姐不上班早上6点多告诉我找到了司机,但是司机并没有看到手机,说我们之后有一个乘客上了车去了港口,基本确定就是那位乘客拿走了手机,我们再打了几个电话那个拿着室友手机的人就拔了卡,最终给了小姐姐500p作为酬谢</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>体验了薄荷岛上陆地风光,海上大风大浪,许多热情本地人,少许不和谐岛民</li>
+<li>第一次出国,英语勉强够用,日常吹吹水问题不大</li>
+<li>广州-马尼拉往返的牛肉饭比较合口味,马尼拉-薄荷岛往返那个鸡肉汉堡真的难吃</li>
+<li>这次菲律宾旅行总体还行,消费不高,人均5500元,主要是机票贵3300+,要是淡季机票在1000以内</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li>货币兑换<ul>
+<li>在国内买美金到菲律宾当地汇率较好的地点兑换比索比价划算</li>
+<li>ATM直接取款虽然有200-250p手续费,但比较方便</li>
+</ul>
+</li>
+<li>不明水况的地方不要直接下水!要穿好装备不然很容易受伤</li>
+<li>在Alona Beach玩预算足够尽量选沙滩附近好一点的酒店,也可以选择在塔比拉兰市住然后租车到Alona Beach玩,稍微折腾一点</li>
+<li>买日常用品挑7-11的,比周边小店便宜</li>
+<li>Alona Beach的信号很差,无论什么卡网速都很慢</li>
+<li>记得带笔!写入境登记卡需要用到,不然排队用笔很浪费时间</li>
+</ul>
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://andersonfeng.github.io/2019/01/03/Tourism-Of-Philippines-New-Year-December29th-Of-2018-To-January2th-Of-2019/" data-id="cl90v4vq0001fy2wv4zlo0f5u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Alona-Beach/" rel="tag">Alona Beach</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bohol/" rel="tag">Bohol</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Philippines/" rel="tag">Philippines</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" rel="tag">菲律宾</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" rel="tag">薄荷岛</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/12/My-Removing-Scar-Experience/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          我的祛疤经历
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/20/About-Loggings/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于日志那些事儿</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">编程</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alona-Beach/" rel="tag">Alona Beach</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bohol/" rel="tag">Bohol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game/" rel="tag">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KCP/" rel="tag">KCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/L2TP/" rel="tag">L2TP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/" rel="tag">Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Logback/" rel="tag">Logback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/" rel="tag">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPC/" rel="tag">NPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Origin/" rel="tag">Origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Philippines/" rel="tag">Philippines</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RedisTemplate/" rel="tag">RedisTemplate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/" rel="tag">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks/" rel="tag">Shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Singleton/" rel="tag">Singleton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slf4j/" rel="tag">Slf4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SoftEther/" rel="tag">SoftEther</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP2RAW/" rel="tag">UDP2RAW</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Youtube/" rel="tag">Youtube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E4%BA%9A/" rel="tag">三亚</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E6%B5%B7/" rel="tag">上海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" rel="tag">东海岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" rel="tag">兵种树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E6%B5%B7/" rel="tag">北海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E6%BB%A9/" rel="tag">外滩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E4%B8%9C/" rel="tag">广东</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" rel="tag">御温泉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%AD%E5%B7%9E/" rel="tag">杭州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%B3%E5%B7%9E/" rel="tag">柳州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%B7%E5%8D%97/" rel="tag">海南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" rel="tag">涠洲岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" rel="tag">湖光岩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%9B%E6%B1%9F/" rel="tag">湛江</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8F%A0%E6%B5%B7/" rel="tag">珠海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" rel="tag">菲律宾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" rel="tag">薄荷岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" rel="tag">螺蛳粉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E6%B9%96/" rel="tag">西湖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" rel="tag">金沙湾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" rel="tag">骑马与砍杀</a></li></ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Alona-Beach/" style="font-size: 10px;">Alona Beach</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Bohol/" style="font-size: 10px;">Bohol</a> <a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Game/" style="font-size: 17.5px;">Game</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/KCP/" style="font-size: 10px;">KCP</a> <a href="/tags/L2TP/" style="font-size: 10px;">L2TP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/Logback/" style="font-size: 10px;">Logback</a> <a href="/tags/MongoDb/" style="font-size: 10px;">MongoDb</a> <a href="/tags/Mysql/" style="font-size: 12.5px;">Mysql</a> <a href="/tags/NPC/" style="font-size: 10px;">NPC</a> <a href="/tags/Origin/" style="font-size: 10px;">Origin</a> <a href="/tags/Philippines/" style="font-size: 10px;">Philippines</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/RedisTemplate/" style="font-size: 10px;">RedisTemplate</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Slf4j/" style="font-size: 10px;">Slf4j</a> <a href="/tags/SoftEther/" style="font-size: 10px;">SoftEther</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 17.5px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/UDP2RAW/" style="font-size: 10px;">UDP2RAW</a> <a href="/tags/Unity/" style="font-size: 15px;">Unity</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/WebSocket/" style="font-size: 10px;">WebSocket</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Youtube/" style="font-size: 10px;">Youtube</a> <a href="/tags/%E4%B8%89%E4%BA%9A/" style="font-size: 10px;">三亚</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 10px;">上海</a> <a href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" style="font-size: 10px;">东海岛</a> <a href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" style="font-size: 10px;">兵种树</a> <a href="/tags/%E5%8C%97%E6%B5%B7/" style="font-size: 10px;">北海</a> <a href="/tags/%E5%A4%96%E6%BB%A9/" style="font-size: 10px;">外滩</a> <a href="/tags/%E5%B9%BF%E4%B8%9C/" style="font-size: 10px;">广东</a> <a href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" style="font-size: 10px;">御温泉</a> <a href="/tags/%E6%9D%AD%E5%B7%9E/" style="font-size: 10px;">杭州</a> <a href="/tags/%E6%9F%B3%E5%B7%9E/" style="font-size: 12.5px;">柳州</a> <a href="/tags/%E6%B5%B7%E5%8D%97/" style="font-size: 10px;">海南</a> <a href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" style="font-size: 10px;">涠洲岛</a> <a href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" style="font-size: 10px;">湖光岩</a> <a href="/tags/%E6%B9%9B%E6%B1%9F/" style="font-size: 12.5px;">湛江</a> <a href="/tags/%E7%8F%A0%E6%B5%B7/" style="font-size: 10px;">珠海</a> <a href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" style="font-size: 10px;">菲律宾</a> <a href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" style="font-size: 10px;">薄荷岛</a> <a href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" style="font-size: 12.5px;">螺蛳粉</a> <a href="/tags/%E8%A5%BF%E6%B9%96/" style="font-size: 10px;">西湖</a> <a href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" style="font-size: 10px;">金沙湾</a> <a href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" style="font-size: 12.5px;">骑马与砍杀</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/">2022.10.05 柳州二游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/14/Tourism-Of-LiuZhou-2021-12-03/">2021.12.03 柳州旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2021/">2021.10.6-10.7 湛江旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/09/Tourism-Of-Zhuhai-21-Nov-2020/">2020.11.21 珠海御温泉</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/14/Tourism-Of-Sanya-Aug-2020/">2020.7.31-8.4 三亚自由行</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Anderson Feng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,35 +1,394 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>2018.10.6-10.7 湛江旅游 | Anderson&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="国庆假期7日长假,想去巴厘岛旅游可惜没有提前计划,已经没有合适的团了.20多年没有去过湛江,于是这次决定湛江2日1夜游.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018.10.6-10.7 湛江旅游">
+<meta property="og:url" content="https://andersonfeng.github.io/2018/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/index.html">
+<meta property="og:site_name" content="Anderson&#39;s blog">
+<meta property="og:description" content="国庆假期7日长假,想去巴厘岛旅游可惜没有提前计划,已经没有合适的团了.20多年没有去过湛江,于是这次决定湛江2日1夜游.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%A2%A7%E5%B7%9E%E5%88%B0%E6%B9%9B%E6%B1%9F.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E5%B9%BF%E5%B7%9E%E5%88%B0%E6%B9%9B%E6%B1%9F.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%9B%E6%B1%9F%E7%AB%99.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%9B%E6%B1%9F%E7%AB%99%E5%88%B0%E6%B9%96%E5%85%89%E5%B2%A9.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A9%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%A7%88%E5%9B%BE.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A91.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A92.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A93.jpg">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A9%E5%80%92%E9%97%AD%E7%9A%84%E6%96%8B%E8%8F%9C%E9%A6%86.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E5%A4%A9%E6%B3%BD%E5%BA%A6%E5%81%87%E9%85%92%E5%BA%97%E6%89%93%E7%9A%84%E5%88%B0%E4%B8%9C%E9%A3%8E%E5%B8%82%E5%9C%BA.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E4%B8%9C%E9%A3%8E%E5%B8%82%E5%9C%BA%E6%AD%A5%E8%A1%8C%E5%88%B0%E5%90%9B%E6%B5%B7%E9%85%92%E5%BA%97.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E5%90%9B%E6%B5%B7%E9%85%92%E5%BA%97%E6%89%93%E7%9A%84%E5%88%B0%E6%B9%9B%E6%B1%9F%E8%A5%BF%E7%AB%99.png">
+<meta property="og:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%9B%E6%B1%9F%E5%88%B0%E5%B9%BF%E5%B7%9E%E5%8A%A8%E8%BD%A6.jpg">
+<meta property="article:published_time" content="2018-10-08T06:21:57.000Z">
+<meta property="article:modified_time" content="2020-04-06T04:54:39.000Z">
+<meta property="article:author" content="Anderson Feng">
+<meta property="article:tag" content="湛江">
+<meta property="article:tag" content="东海岛">
+<meta property="article:tag" content="湖光岩">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://andersonfeng.github.io/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%A2%A7%E5%B7%9E%E5%88%B0%E6%B9%9B%E6%B1%9F.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Anderson&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Anderson&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://andersonfeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/" class="article-date">
+  <time datetime="2018-10-08T06:21:57.000Z" itemprop="datePublished">2018-10-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2018.10.6-10.7 湛江旅游
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote class="blockquote-center"><p>国庆假期7日长假,想去巴厘岛旅游可惜没有提前计划,已经没有合适的团了.<br>20多年没有去过湛江,于是这次决定湛江2日1夜游.</p>
+</blockquote>
+<span id="more"></span>
 
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<h3 id="出行"><a href="#出行" class="headerlink" title="出行"></a>出行</h3><ul>
+<li>3人行,2人从梧州出发,室友从广州出发,最后一同回广州</li>
+<li>梧州到湛江只有一趟<code>K1803</code>  <img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%A2%A7%E5%B7%9E%E5%88%B0%E6%B9%9B%E6%B1%9F.png" class="" title="梧州到湛江"></li>
+<li>广州早上7点到湛江的车也只有一趟<code>K1233</code>  <img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E5%B9%BF%E5%B7%9E%E5%88%B0%E6%B9%9B%E6%B1%9F.png" class="" title="广州到湛江"></li>
+<li>出去玩就对自己好一些,所以买的是硬卧</li>
+</ul>
+<h3 id="湖光岩"><a href="#湖光岩" class="headerlink" title="湖光岩"></a>湖光岩</h3><ul>
+<li>网上查到湛江出名的旅游景点<code>湖光岩</code>和<code>东海岛</code>排一二位,<br>  2日1夜要出岛时间比较紧,<br>  所以决定只游玩这两个地方</li>
+<li>湖光岩<ul>
+<li>我和女友乘坐的<code>K1803</code>车上气味不好闻又很吵,<br>  不过睡一觉就过去了,<br>  在梧州晚点约20分钟,<br>  但实际到站却提前了20分钟.<br>  到站后附近走走并没有发现什么亮眼的早餐店,<br>  看得出湛江经济不是很发达,<br>  火车站附近比较破旧,<br>  湛江站石狮子旁一家早餐店喝了碗粥,<br>  边充电边等待室友到站  <img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%9B%E6%B1%9F%E7%AB%99.png" class="" title="湛江站"></li>
+<li>7:40集中后叫了个滴滴到湖光岩,<br>  我闻到车尾气很容易晕车,<br>  但湛江的出租车并没有平常那种恶心的味道,<br>  体验还不错,<br>  打的用了37块钱  <img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%9B%E6%B1%9F%E7%AB%99%E5%88%B0%E6%B9%96%E5%85%89%E5%B2%A9.png" class="" title="湛江站到湖光岩"></li>
+<li>到了湖光岩大门<br>  <code>发现基本没什么人,虽然是国庆尾声,不至于这么少人吧,出去时才知道是来得太早了</code><br>  只有一个卖票窗口开着 40元&#x2F;位,<br>  售票小姐姐在吃鸡并告诉我们只收现金,<br>  幸好有老爸老妈给的出门现金红包,<br>  不然还得跑到附近的海洋大学去取现</li>
+<li>进了景点走一段路有一个长长的楼梯,<br>  再往前些有个厕所和超市,<br>  旁边的大爷可以寄存行李在小房子,3元&#x2F;件很良心,<br>  存了之后留了大爷电话怕回来找不到人耽误行程.</li>
+<li>湖光岩景点是一个可以环火山湖行走的7公里的林荫小道,<br>  之前在网上看到有美食欢乐园,<br>  到了才发现不是没开发就是倒闭了…<br>  不过湖水还是很清澈的  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A9%E6%99%AF%E5%8C%BA%E5%AF%BC%E8%A7%88%E5%9B%BE.jpg" class="" title="湖光岩景区导览图"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A91.jpg" class="" title="湖光岩下楼梯"></div></div><div class="group-picture-row"><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A92.jpg" class="" title="湖光岩水很清澈"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A93.jpg" class="" title="湖光岩湖景"></div><div class="group-picture-column"  style="width: 33.333333333333336%;"><img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%96%E5%85%89%E5%B2%A9%E5%80%92%E9%97%AD%E7%9A%84%E6%96%8B%E8%8F%9C%E9%A6%86.png" class="" title="湖光岩倒闭的斋菜馆"></div></div></div></div></li>
+<li>行程2个半小时,<br>  下次来建议坐有个火车头的观光车,<br>  那个观光车开得不快可以慢慢欣赏沿湖风光,<br>  最主要不用走得那么累</li>
+</ul>
+</li>
+</ul>
+<h3 id="海鲜批发市场"><a href="#海鲜批发市场" class="headerlink" title="海鲜批发市场"></a>海鲜批发市场</h3><pre><code>- 朋友说在湛江可以到批发市场购买海鲜然后到酒楼加工,
+比在其他地方吃得便宜多了,
+看着时间还早不到11点,
+原计划是16点到东海岛龙海天度假区,
+于是在门口截到出租车打的去东风市场 花了49元,
+`在湖光岩滴滴叫不到,只能随缘等出租车,在车上睡着了实际上去的是东风市场附近的批发市场,不过海鲜品种更多`
+    &#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/湖光岩打的到东风市场.png  湖光岩打的到东风市场 %&#125;
+- 批发海鲜 48带子 15带子 17鱿鱼 20蛏子共花100,
+旁边有个酒楼牌子叫什么蒸美味的海鲜加工3元起,
+于是过去称重,
+称了之后发现有点贵,    
+问了发现不足一斤按一斤算还把要炒的海鲜给蒸了,
+后来也没给我们重新炒带子都亏了 花了96,
+走到外面君海酒店旁边比较破烂的海鲜加工店问一下价格,
+加工费比批发市场里面的加工酒店便宜一半,
+真吃了个大亏!
+</code></pre>
+<h3 id="东海岛龙海天度假村"><a href="#东海岛龙海天度假村" class="headerlink" title="东海岛龙海天度假村"></a>东海岛龙海天度假村</h3><pre><code>- 吃了点亏填填肚子,
+市内也没什么有意思的地方,
+直接打的去东海岛的龙海天度假村 花了138,
+    &#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/君海酒店打的到龙海天度假村.png  君海酒店打的到龙海天度假村 %&#125;
+- 到了后发现这个度假村真的是破,
+除了沙滩就只有楼下几个大排档,
+酒店也是一般般 空房间很多,
+网上订是366 当天价格是600+,
+    &#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/龙海天天泽度假酒店.jpg  龙海天天泽度假酒店 %&#125;
+`下一次来我们不会选择这个所谓龙海天度假村的酒店,宁愿花15块钱打三轮车到小镇上住`
+- 到楼下人比较多的大排档吃个午餐(实际上也就2桌人),
+海鲜粥没什么味道,    
+烤生蚝像蒸的一样,
+青菜炒得很难吃,
+皮皮虾虽然大也没什么味道 共吃了242,
+&#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/龙海天中午大排档椒盐皮皮虾.jpg  龙海天中午大排档椒盐皮皮虾 %&#125;    
+- 日落时18:23 于是定时间17:30从酒店出门,
+这个酒店唯一的好处是离海滩只有100米左右
 
-{% block page_class %}page-post-detail{% endblock %}
+- 换好泳装出门,
+海滩旁有衣物保管 淡水冲凉 救生圈租赁 就几块钱,
+也有几十块钱的泳装和防晒帽卖,
+当时不知道是不是对&quot;傍晚在海滩游泳&quot;有什么误解,
+原本想踏浪而去,
+谁知浪大得根本没有怎么正常游,
+套在救生圈里的女友被浪冲得差点离不开沙滩,
+不过泡泡海水也是不错的,
+如果没有广州室友丢了眼镜的情况下,
+室友认为眼镜能浮起来所以没有放到保管处,
+可惜大家被一个浪接浪打懵,
+后来来过几次海滩也没有能找到眼镜,
+`所以出海的朋友要注意保管眼镜啦`
+- 回酒店冲凉,
+到沙滩逛逛顺便找找眼镜    
+&#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/东海岛傍晚.jpg  东海岛傍晚 %&#125;    
+到楼下另一个大排档吃晚餐还点了烧鸡,
+这才发现我们并不是挑错了大排档,
+而是这里的大排档就!是!!坑!!!
+对于烧烤应该是游客太少要省碳,
+火非常小所以才把生蚝烤得像蒸一样
+没什么胃口吃完 共花233
 
+- 于是我们研究有没有什么交通工具能出外面的小镇,
+室友告诉我打的来的时候我们在睡觉没看到,
+实际上外面几公里有个小镇有很多大排档,
+于是我们打算等公交,
+可等了很久公交并没有开的意思,
+运气好截到了一辆&quot;三蹦子&quot;出小镇才15块钱,
+吴师傅留了电话说如果要回来可以再联系他,
+我们逛了一下发现有一家叫做&quot;小镇老牌烧烤大排档&quot;的大排档火特别旺,
+事实证明他们上菜速度是真的快,
+我们三个吃得都没有上得快,
+而且看到喜欢的就点 吃到撑最后才花160
 
-{% block content %}
+- 坐了三蹦子回龙海天,
+再去沙滩找找奇迹,
+当然奇迹是没那么容易出现的,
+我们拍照留了恋
+&#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/东海岛夜晚.png  东海岛夜晚 %&#125;    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+- 看日出
+天气APP说日出时间是6:21左右,
+定好5:50出门,
+室友说他做了个梦,
+梦到在海边找到了眼镜不过却烂掉了...
+&#123;% gp 3-3 %&#125;
+    &#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/东海岛日出1.jpg  东海岛早上的月亮 %&#125;    
+    &#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/东海岛日出2.jpg  月亮还能看到脸蛋 %&#125;    
+    &#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/东海岛日出3.jpg  太阳出了个头 %&#125;    
+    &#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/东海岛日出4.jpg  太阳露出来了 %&#125;    
+    &#123;% img /images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/东海岛日出5.jpg  发个朋友圈 %&#125;   
+    &#123;% endgp %&#125;
+</code></pre>
+<h3 id="重回海鲜批发市场"><a href="#重回海鲜批发市场" class="headerlink" title="重回海鲜批发市场"></a>重回海鲜批发市场</h3><ul>
+<li>室友的房间是4楼海景房,<br>看完日出在海边吃完昨晚在小镇买的糕点,<br>到室友房间坐坐看看电视玩玩手机,<br><code>订酒店时老板说4楼的单人房睡不了两个人,但看着床的大小明明可以睡两个嘛</code><br>回房间休息到10点多收拾行李退房,<br>老板说11:15有一班车出市区,<br>可我上个厕所还没到11:10出酒店就只能看到公车屁股了,<br>旁边有个私家车司机问我们去哪,<br>我们说去那个搞海鲜批发的东风市场然后100成交<img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E5%A4%A9%E6%B3%BD%E5%BA%A6%E5%81%87%E9%85%92%E5%BA%97%E6%89%93%E7%9A%84%E5%88%B0%E4%B8%9C%E9%A3%8E%E5%B8%82%E5%9C%BA.png" class="" title="天泽度假酒店打的到东风市场"> </li>
+<li>到了东风市场发现和昨天来的市场长得不一样,<br>虽然也有海鲜但规模还不到昨天的一半,<br>于是找到昨天打车的起点君海酒店,<img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E4%B8%9C%E9%A3%8E%E5%B8%82%E5%9C%BA%E6%AD%A5%E8%A1%8C%E5%88%B0%E5%90%9B%E6%B5%B7%E9%85%92%E5%BA%97.png" class="" title="东风市场步行到君海酒店"> </li>
+<li>再次批发海鲜 60虾 30带子 66石斑鱼 共花156<br>这次我们回到昨天问过价的那家加工酒店加工海鲜 另外加了份青菜才花68,<br>便宜太多了,<br>最后吃石斑鱼吃撑了肚子</li>
+</ul>
+<h3 id="返程"><a href="#返程" class="headerlink" title="返程"></a>返程</h3><ul>
+<li>把餐桌的食物都塞进肚子后稍作休息<br>叫滴滴到湛江西站 花了63<img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E5%90%9B%E6%B5%B7%E9%85%92%E5%BA%97%E6%89%93%E7%9A%84%E5%88%B0%E6%B9%9B%E6%B1%9F%E8%A5%BF%E7%AB%99.png" class="" title="君海酒店打的到湛江西站">   </li>
+<li>可惜即使是牛哥也不能帮我们抢到湛江直达广州的动车,<br>前几天看到智行APP有湛江到马踏然后补票到广州的方案,<img src="/images/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/%E6%B9%9B%E6%B1%9F%E5%88%B0%E5%B9%BF%E5%B7%9E%E5%8A%A8%E8%BD%A6.jpg" class="" title="湛江到广州动车">   
+二话不说直接买下,<br>原本不知道马踏是个什么地方,<br>这下大家都知道了,<br>补票的人从13车排到16车,<br>到马踏站机智的我们马上离开座位寻找好的站位,<br>我还说前几天看到新闻说动车人太多,<br>乘务员让无票的人下车…<br>然后到了某个站我们也遇到了,<br>下车跑到一等座旁边继续站着看电影,<br>动车晚点半小时,<br>最终站了3个小时终于到广州,<br>全车人似乎都松了口气</li>
+</ul>
+<h3 id="广州"><a href="#广州" class="headerlink" title="广州"></a>广州</h3><ul>
+<li>到广州先去陪室友配眼镜,<br>然后吃了牛杂和冒菜 花了69,<br>踏上回家的地铁告别旅途</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>|消费|项目<br>|-|<br>|37 |  湛江站打的到湖光岩<br>|120|  湖光岩门票<br>|49|   湖光岩打的到批发市场<br>|100|  第一次海鲜批发(48带子 15带子 17鱿鱼 20蛏子)<br>|96|   海鲜加工<br>|138|  批发市场打的到龙海天度假村<br>|242|  龙海天中午大排档<br>|233|  龙海天晚上大排档<br>|15|   三轮车龙海天-小镇<br>|31|   浓心爷爷糕点<br>|160|  小镇老牌烧烤大排档<br>|15|   三轮车小镇-龙海天<br>|100|  龙海天打的到东风市场<br>|156|  第二次海鲜批发(60虾 30带子 66石斑鱼)<br>|68|   海鲜加工<br>|63|   君海酒店打的到湛江西<br>|687|  湛江西-马踏-广州南<br>|69|   广州冒菜牛杂</p>
+<p>总计:2379<br>人均:793<br>另计:366<code>龙海天住宿</code><br>另计人均:1159</p>
+<ul>
+<li>关于住宿  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">如果想在东海岛看日出,</span><br><span class="line">推荐住在龙海天附近的小镇上,</span><br><span class="line">15块钱10分钟可以到海滩,</span><br><span class="line">周边大排档便宜好吃酒店也便宜些</span><br></pre></td></tr></table></figure></li>
+<li>关于海鲜批发加工  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">选择加工的酒店最好离批发市场远些,</span><br><span class="line">离得近的价格比较贵容易宰客,</span><br><span class="line">离得远些可以避坑</span><br></pre></td></tr></table></figure></li>
+</ul>
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% endif %}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://andersonfeng.github.io/2018/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2018/" data-id="cl90v4vq2001my2wvc1xy7kew" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" rel="tag">东海岛</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" rel="tag">湖光岩</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B9%9B%E6%B1%9F/" rel="tag">湛江</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/18/Statistics-Ten-Millions-Of-Data-By-Mysql/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          通过Mysql统计千万级数据
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/28/Spring-Boot-multiDataSource/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Spring Boot 双数据源</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%85%E6%B8%B8/">旅游</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming/">编程</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Alona-Beach/" rel="tag">Alona Beach</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bohol/" rel="tag">Bohol</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Game/" rel="tag">Game</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KCP/" rel="tag">KCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/L2TP/" rel="tag">L2TP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Log/" rel="tag">Log</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Logback/" rel="tag">Logback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDb/" rel="tag">MongoDb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NPC/" rel="tag">NPC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Origin/" rel="tag">Origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Philippines/" rel="tag">Philippines</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RedisTemplate/" rel="tag">RedisTemplate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Route/" rel="tag">Route</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shadowsocks/" rel="tag">Shadowsocks</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Singleton/" rel="tag">Singleton</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Slf4j/" rel="tag">Slf4j</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SoftEther/" rel="tag">SoftEther</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/" rel="tag">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP2RAW/" rel="tag">UDP2RAW</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Youtube/" rel="tag">Youtube</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E4%BA%9A/" rel="tag">三亚</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8A%E6%B5%B7/" rel="tag">上海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" rel="tag">东海岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" rel="tag">兵种树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%97%E6%B5%B7/" rel="tag">北海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A4%96%E6%BB%A9/" rel="tag">外滩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%BF%E4%B8%9C/" rel="tag">广东</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" rel="tag">御温泉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%AD%E5%B7%9E/" rel="tag">杭州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%B3%E5%B7%9E/" rel="tag">柳州</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%B7%E5%8D%97/" rel="tag">海南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" rel="tag">涠洲岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" rel="tag">湖光岩</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B9%9B%E6%B1%9F/" rel="tag">湛江</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8F%A0%E6%B5%B7/" rel="tag">珠海</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" rel="tag">菲律宾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" rel="tag">薄荷岛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" rel="tag">螺蛳粉</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E6%B9%96/" rel="tag">西湖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" rel="tag">金沙湾</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" rel="tag">骑马与砍杀</a></li></ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Alona-Beach/" style="font-size: 10px;">Alona Beach</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Bohol/" style="font-size: 10px;">Bohol</a> <a href="/tags/C/" style="font-size: 15px;">C#</a> <a href="/tags/Game/" style="font-size: 17.5px;">Game</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/KCP/" style="font-size: 10px;">KCP</a> <a href="/tags/L2TP/" style="font-size: 10px;">L2TP</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Log/" style="font-size: 10px;">Log</a> <a href="/tags/Logback/" style="font-size: 10px;">Logback</a> <a href="/tags/MongoDb/" style="font-size: 10px;">MongoDb</a> <a href="/tags/Mysql/" style="font-size: 12.5px;">Mysql</a> <a href="/tags/NPC/" style="font-size: 10px;">NPC</a> <a href="/tags/Origin/" style="font-size: 10px;">Origin</a> <a href="/tags/Philippines/" style="font-size: 10px;">Philippines</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/RedisTemplate/" style="font-size: 10px;">RedisTemplate</a> <a href="/tags/Route/" style="font-size: 10px;">Route</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/Singleton/" style="font-size: 10px;">Singleton</a> <a href="/tags/Slf4j/" style="font-size: 10px;">Slf4j</a> <a href="/tags/SoftEther/" style="font-size: 10px;">SoftEther</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 17.5px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/UDP2RAW/" style="font-size: 10px;">UDP2RAW</a> <a href="/tags/Unity/" style="font-size: 15px;">Unity</a> <a href="/tags/VPN/" style="font-size: 10px;">VPN</a> <a href="/tags/VPS/" style="font-size: 10px;">VPS</a> <a href="/tags/WebSocket/" style="font-size: 10px;">WebSocket</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/Youtube/" style="font-size: 10px;">Youtube</a> <a href="/tags/%E4%B8%89%E4%BA%9A/" style="font-size: 10px;">三亚</a> <a href="/tags/%E4%B8%8A%E6%B5%B7/" style="font-size: 10px;">上海</a> <a href="/tags/%E4%B8%9C%E6%B5%B7%E5%B2%9B/" style="font-size: 10px;">东海岛</a> <a href="/tags/%E5%85%B5%E7%A7%8D%E6%A0%91/" style="font-size: 10px;">兵种树</a> <a href="/tags/%E5%8C%97%E6%B5%B7/" style="font-size: 10px;">北海</a> <a href="/tags/%E5%A4%96%E6%BB%A9/" style="font-size: 10px;">外滩</a> <a href="/tags/%E5%B9%BF%E4%B8%9C/" style="font-size: 10px;">广东</a> <a href="/tags/%E5%BE%A1%E6%B8%A9%E6%B3%89/" style="font-size: 10px;">御温泉</a> <a href="/tags/%E6%9D%AD%E5%B7%9E/" style="font-size: 10px;">杭州</a> <a href="/tags/%E6%9F%B3%E5%B7%9E/" style="font-size: 12.5px;">柳州</a> <a href="/tags/%E6%B5%B7%E5%8D%97/" style="font-size: 10px;">海南</a> <a href="/tags/%E6%B6%A0%E6%B4%B2%E5%B2%9B/" style="font-size: 10px;">涠洲岛</a> <a href="/tags/%E6%B9%96%E5%85%89%E5%B2%A9/" style="font-size: 10px;">湖光岩</a> <a href="/tags/%E6%B9%9B%E6%B1%9F/" style="font-size: 12.5px;">湛江</a> <a href="/tags/%E7%8F%A0%E6%B5%B7/" style="font-size: 10px;">珠海</a> <a href="/tags/%E8%8F%B2%E5%BE%8B%E5%AE%BE/" style="font-size: 10px;">菲律宾</a> <a href="/tags/%E8%96%84%E8%8D%B7%E5%B2%9B/" style="font-size: 10px;">薄荷岛</a> <a href="/tags/%E8%9E%BA%E8%9B%B3%E7%B2%89/" style="font-size: 12.5px;">螺蛳粉</a> <a href="/tags/%E8%A5%BF%E6%B9%96/" style="font-size: 10px;">西湖</a> <a href="/tags/%E9%87%91%E6%B2%99%E6%B9%BE/" style="font-size: 10px;">金沙湾</a> <a href="/tags/%E9%AA%91%E9%A9%AC%E4%B8%8E%E7%A0%8D%E6%9D%80/" style="font-size: 12.5px;">骑马与砍杀</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/09/Tourism-Of-LiuZhou-2022-10-05/">2022.10.05 柳州二游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/14/Tourism-Of-LiuZhou-2021-12-03/">2021.12.03 柳州旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/08/Tourism-Of-Zhanjiang-National-Day-October6th-To-October7th-Of-2021/">2021.10.6-10.7 湛江旅游</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/09/Tourism-Of-Zhuhai-21-Nov-2020/">2020.11.21 珠海御温泉</a>
+          </li>
+        
+          <li>
+            <a href="/2020/08/14/Tourism-Of-Sanya-Aug-2020/">2020.7.31-8.4 三亚自由行</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Anderson Feng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
