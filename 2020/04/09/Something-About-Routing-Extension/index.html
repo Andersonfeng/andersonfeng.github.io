@@ -250,7 +250,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><blockquote class="blockquote-center"><p>无线路由扩展遇到的小问题</p>
+    <div class="post-body" itemprop="articleBody"><blockquote class="blockquote-center">
+<p>无线路由扩展遇到的小问题</p>
+
 </blockquote>
 
 <span id="more"></span>
@@ -286,7 +288,7 @@
 <p>后面会给出解决主副路由设备互联的方法</p>
 <p>连接主路由的无线信号</p>
 <p>选择WAN(Wireless ISP)</p>
-<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E8%B7%AF%E7%94%B1%E4%B8%8D%E5%90%8C%E7%BD%91%E6%AE%B5%E6%89%A9%E5%B1%95.png" class="" title="无线路由不同网段扩展"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E6%89%A9%E5%B1%95WAN-DHCP.png" class="" title="DHCP由自己分配"></div></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E8%B7%AF%E7%94%B1%E4%B8%8D%E5%90%8C%E7%BD%91%E6%AE%B5%E6%89%A9%E5%B1%95.png" class="" title="无线路由不同网段扩展"></div><div class="group-picture-column"><img src="/images/Something-About-Routing-Extension/%E6%97%A0%E7%BA%BF%E6%89%A9%E5%B1%95WAN-DHCP.png" class="" title="DHCP由自己分配"></div></div></div>
 
 <p>现在连上主路由和子路由的设备都能上网而且不会有网络中断的情况发生</p>
 <p>子路由的LAN口伸出的网线连接的终端也能直接上网,相当于插了一个无线网卡连接主路由</p>
@@ -301,7 +303,7 @@
 <p>子路由在主路由的IP 也就是子路由的WAN口IP为 <em>[192.168.50.95]</em></p>
 <p>子路由设置了DMZ内网主机IP为*[192.168.2.212]*</p>
 <p>那么主路由设备ping <em>[192.168.50.95]</em> 时就相当于ping子路由的*[192.168.2.212]*</p>
-<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1WAN%E5%8F%A3IP.png" class="" title="子路由WAN口IP"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/DMZ.png" class="" title="DMZ"></div></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1WAN%E5%8F%A3IP.png" class="" title="子路由WAN口IP"></div><div class="group-picture-column"><img src="/images/Something-About-Routing-Extension/DMZ.png" class="" title="DMZ"></div></div></div>
 
 <h3 id="不同网段设备互访-静态路由"><a href="#不同网段设备互访-静态路由" class="headerlink" title="不同网段设备互访 静态路由"></a>不同网段设备互访 静态路由</h3><p>主路由将子路由添加到静态路由列表</p>
 <img src="/images/Something-About-Routing-Extension/%E4%B8%BB%E8%B7%AF%E7%94%B1%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E8%A1%A8.png" class="" title="主路由静态路由表">
@@ -314,14 +316,14 @@
 
 
 <p>但是也有个别情况ping不同某些子路由的windows设备</p>
-<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87%E7%8A%B6%E6%80%81.png" class="" title="子路由设备状态"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87ping%E4%B8%8D%E9%80%9A.png" class="" title="子路由设备ping不通.png"></div></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87%E7%8A%B6%E6%80%81.png" class="" title="子路由设备状态"></div><div class="group-picture-column"><img src="/images/Something-About-Routing-Extension/%E5%AD%90%E8%B7%AF%E7%94%B1%E8%AE%BE%E5%A4%87ping%E4%B8%8D%E9%80%9A.png" class="" title="子路由设备ping不通.png"></div></div></div>
 
 <p>这是子路由设备的防火墙设置导致的,</p>
 <p>不推荐直接关闭防火墙解决问题</p>
 <p>这里找到了防火墙的关键设置</p>
 <p>控制面板-&gt;所有控制面板项-&gt;Windows Defender 防火墙-&gt;允许应用或功能通过 Windows Defender 防火墙</p>
 <p>开启Netlogon服务 用于网络共享</p>
-<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E5%BC%80%E5%90%AFNetlogon%E6%9C%8D%E5%8A%A1.png" class="" title="开启Netlogon服务"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/Something-About-Routing-Extension/%E7%BD%91%E7%BB%9C%E5%8F%91%E7%8E%B0.png" class="" title="网络发现.png"></div></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/Something-About-Routing-Extension/%E5%BC%80%E5%90%AFNetlogon%E6%9C%8D%E5%8A%A1.png" class="" title="开启Netlogon服务"></div><div class="group-picture-column"><img src="/images/Something-About-Routing-Extension/%E7%BD%91%E7%BB%9C%E5%8F%91%E7%8E%B0.png" class="" title="网络发现.png"></div></div></div>
 
 <p>(怕搞错的朋友不用怕,Windows Defender 防火墙页面有***[还原默认值]***的选项)</p>
 <p>至于ping的问题 </p>

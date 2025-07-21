@@ -277,10 +277,11 @@
 </ul>
 </li>
 <li>从结果看出查单列可以比查全列快很多倍,数据量越大越明显<br>表的id是主键有索引而且是基本连续的,<br>用<code>id&gt;</code>的方法进行分页查询Mysql就不需要从第一条开始查到最后一条了,<br>写个子查询,根据上次分页查询到的最后一个id作为下次分页的第一条数据</li>
-<li><code>  SELECT * from vote_detail where id &gt;=   (select id from vote_detail where vote_id = #&#123;voteId&#125; order by id limit #&#123;startSize&#125;,1) limit #&#123;pageSize&#125;  </code><br>经过测试,用这个sql可以保证分页查询耗时不会因为页数越大变得越慢</li>
+<li><code>  SELECT * from vote_detail where id &gt;=   (select id from vote_detail where vote_id = #&#123;voteId&#125; order by id limit #&#123;startSize&#125;,1) limit #&#123;pageSize&#125;  </code></li>
 </ul>
 </li>
 </ul>
+<p>经过测试,用这个sql可以保证分页查询耗时不会因为页数越大变得越慢</p>
 <h4 id="第四次优化"><a href="#第四次优化" class="headerlink" title="第四次优化"></a>第四次优化</h4><ul>
 <li>优化分页查询后,<br>喜滋滋地一下子初始化所有统计数据就回家看电影了,<br>第二天回来一看日志,<br>初始化不到100W条数据jvm还是报错了<code>GC overhead limit exceeded</code>,<br>于是我请教了公司的<code>文神</code>,<br>他教会我一个命令<code>jconsole</code>调出<code>java监视和管理控制台</code>,<br>在这个控制台可以看到java进程的内存分配情况,<img src="/images/Statistics-Ten-Millions-Of-Data-By-Mysql/%E8%80%81%E5%B9%B4%E4%BB%A3%E9%87%8A%E6%94%BE.png" class="" title="老年代释放">
 通过监视发现就算优化了sql,代码没有及时把<code>userId</code>列表释放掉,<br>越堆越多造成老年代满了于是报出<code>GC overhead limit exceeded</code>错误,<br>于是优化代码逻辑,<br>不把<code>userId</code>列表统一起来再查了,<br>而是每次从<code>投票详情表</code>(<code>vote_detail</code>)分页获取到<code>userId</code>列表就到<code>用户表</code>(<code>user</code>)统计,<br>这样便能释放掉<code>userId</code>列表</li>

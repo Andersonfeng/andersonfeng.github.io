@@ -250,7 +250,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><blockquote class="blockquote-center"><p>最近想和朋友玩无主之地3<br>但是官方联机做得太差<br>小伙伴连登陆都成问题<br>只能使用局域网联机的办法</p>
+    <div class="post-body" itemprop="articleBody"><blockquote class="blockquote-center">
+<p>最近想和朋友玩无主之地3<br>但是官方联机做得太差<br>小伙伴连登陆都成问题<br>只能使用局域网联机的办法</p>
+
 </blockquote>
 
 <span id="more"></span>
@@ -290,7 +292,9 @@
 
 <p>这里连接出错的朋友如果坚持继续使用windows内置的vpn连接请善用搜索引擎<br>想知道详细出什么错误可以用windows 命令行进行拨号<br><code>rasdial &#123;vpn名称&#125; &#123;vpn用户名&#125; &#123;vpn用户名密码&#125;</code><br>比如<code> rasdial vpn test 12345678</code><br>我两个小伙伴都因为各种设置原因一开始没有连接成功<br>后来一个小伙伴重置了电脑成功了</p>
 <h3 id="SoftEther-Client-连接"><a href="#SoftEther-Client-连接" class="headerlink" title="SoftEther Client 连接"></a>SoftEther Client 连接</h3><p>windows连不了的朋友可以选择用SoftEther客户端进行连接</p>
-<blockquote class="blockquote-center"><p>一开始的选择果然正确<br>该开源软件的解决方案非常成熟<br>感谢日本的程序员大神 <a href="https://zh.wikipedia.org/wiki/SoftEther_VPN">SoftEther VPN</a></p>
+<blockquote class="blockquote-center">
+<p>一开始的选择果然正确<br>该开源软件的解决方案非常成熟<br>感谢日本的程序员大神 <a href="https://zh.wikipedia.org/wiki/SoftEther_VPN">SoftEther VPN</a></p>
+
 </blockquote>
 
 <img src="/images/SoftEtherVPN-L2TP-Local-Network/download-client-windows.png" class="" title="下载softether客户端">
@@ -301,7 +305,7 @@
 <h3 id="Andrioid手机进行连接"><a href="#Andrioid手机进行连接" class="headerlink" title="Andrioid手机进行连接"></a>Andrioid手机进行连接</h3><p>设置-连接-vpn-添加vpn<br>不同手机进入设置vpn的方式可能不同</p>
 <p>类型选择L2TP&#x2F;IPSec PSK<br>填入服务器IP<br>IPSec 预共享秘钥填入之前设置的vpn</p>
 <p>输入账号密码连接</p>
-<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column"  style="width: 50%;"><img src="/images/SoftEtherVPN-L2TP-Local-Network/android-connection.png" class="" title="安卓连接vpn"></div><div class="group-picture-column"  style="width: 50%;"><img src="/images/SoftEtherVPN-L2TP-Local-Network/android-connection2.png" class="" title="安卓连接vpn"></div></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="/images/SoftEtherVPN-L2TP-Local-Network/android-connection.png" class="" title="安卓连接vpn"></div><div class="group-picture-column"><img src="/images/SoftEtherVPN-L2TP-Local-Network/android-connection2.png" class="" title="安卓连接vpn"></div></div></div>
 
 
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>连接成功后就已经和所有连接了vpn的小伙伴组成局域网了<br>比如原来的ip 是 192.168.50.100<br>连上vpn之后会多了一个网卡 ip为 192.168.30.10<br>可以用192.168.30.x网段 互相ping 互相进行文件访问 互相进行局域网游戏<br>有些游戏比如<a href="http://lf2.net/index_b5.html">LF2</a> 不能由远端的客户端做主机<br>因为这类游戏并不是监听全网段端口 只是监听了默认网卡的端口<br>但是可以由和服务器端同一实际局域网下的小伙伴做主机 因为虚拟局域网下的小伙伴都能ping得到 192.168.50.x网段<br>具体原理请自行搜索子网和主网相关的知识</p>
